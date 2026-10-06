@@ -72,6 +72,6 @@ public class MapVO {
         return numberOfRows ==  mapVO.getNumberOfRows() &&
                     numberOfColumns == mapVO.getNumberOfColumns() &&
                         Arrays.deepEquals(map, mapVO.getMap()) &&
-                            Arrays.deepEquals(map, mapVO.getFixed());
+                            Arrays.deepEquals(fixed, mapVO.getFixed());
     }
 }

@@ -1,5 +1,7 @@
 package hu.nye.progtech.service.map.parser;
 
+import hu.nye.progtech.model.MapVO;
+
 import java.util.List;
 
 public class MapParser {
@@ -14,7 +16,7 @@ public class MapParser {
 
 
 
-    public int [][] getMap(List<String> rawMap){
+    private int [][] getMap(List<String> rawMap){
         int[][] result= new int[numberOfRows][];
 
         for(int i = 0; i < numberOfRows; i++){
@@ -31,7 +33,7 @@ public class MapParser {
         return result;
     }
 
-    public boolean[][] getFixed(int[][] map){
+    private boolean[][] getFixed(int[][] map){
         boolean[][] result = new boolean[numberOfColumns][];
 
         for(int i = 0;i< numberOfRows;i++){
@@ -44,5 +46,12 @@ public class MapParser {
 
         return result;
 
+    }
+
+    public MapVO parseMap(List<String> rawMap){
+        int[][] map = getMap(rawMap);
+        boolean[][] fixed = getFixed(map);
+
+        return new MapVO(numberOfRows,numberOfColumns, map, fixed);
     }
 }

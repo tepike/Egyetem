@@ -1,5 +1,6 @@
 package hu.nye.progtech;
 
+import hu.nye.progtech.model.MapVO;
 import hu.nye.progtech.service.exceptions.MapReaderException;
 import hu.nye.progtech.service.map.parser.MapParser;
 import hu.nye.progtech.service.map.reader.BufferedReaderMapReader;
@@ -22,6 +23,9 @@ public class Main {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         BufferedReaderMapReader mapReader= new BufferedReaderMapReader(bufferedReader);
 
+        InputStream inputStream2nd = Main.class.getClassLoader().getResourceAsStream("map/first_step.txt");
+        BufferedReader bufferedReader2nd = new BufferedReader(new InputStreamReader(inputStream2nd));
+        BufferedReaderMapReader mapReader2nd= new BufferedReaderMapReader(bufferedReader2nd);
 
 
         String line;
@@ -31,21 +35,15 @@ public class Main {
             int numberOfColumns=9;
 
             List<String> rawMap= mapReader.readMap();
-
-            Iterator iterator = rawMap.iterator();
-
-            while (iterator.hasNext()) {
-
-                System.out.println(iterator.next());
-            }
-
-            System.out.println("-----------------------------");
+            List<String> rawMap2nd = mapReader2nd.readMap();
 
             MapParser mapParser= new MapParser(numberOfRows,numberOfColumns);
-            int[][] map = mapParser.getMap(rawMap);
-            boolean[][] fixed= mapParser.getFixed(map);
 
+            MapVO mapVO1= mapParser.parseMap(rawMap);
 
+            MapVO mapVO2= mapParser.parseMap(rawMap2nd);
+
+            System.out.println(mapVO1.equals(mapVO2));
 
 
         }catch (MapReaderException e){
