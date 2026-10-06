@@ -24,10 +24,7 @@ public class MapParser {
             String[] parts= line.split("");
 
             for(int j=0;j< numberOfColumns;j++){
-
                 result[i][j]= Integer.parseInt(parts[j]);
-
-
             }
 
         }

@@ -45,18 +45,9 @@ public class Main {
             int[][] map = mapParser.getMap(rawMap);
             boolean[][] fixed= mapParser.getFixed(map);
 
-            for(int i=0;i< numberOfRows;i++){
-                System.out.println(Arrays.stream(map[i]).mapToObj(String::valueOf).collect(Collectors.joining()));
-            }
 
-            System.out.println("-----------------------------");
 
-            for(int i=0;i< numberOfRows;i++){
-                for(int j=0;j< numberOfColumns;j++){
-                    System.out.print(fixed[i][j]+" ");
-                }
-                System.out.println("");
-            }
+
         }catch (MapReaderException e){
             System.out.println(e.getMessage());
         }
