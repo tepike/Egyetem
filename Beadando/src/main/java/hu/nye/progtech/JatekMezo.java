@@ -1,6 +1,6 @@
 package hu.nye.progtech;
 
-public class JatekMezo {
-    int sorMagas;
-    int sorSzeles;
+    class JatekMezo {
+        int sorSzeles=6;
+        int oszlopMagas=12;
 }
