@@ -1,2 +1,13 @@
-hu\nye\progtech\JatekMezo.class
+hu\nye\progtech\commands\MenuCommands.class
+hu\nye\progtech\engine\IndulasiAdatok.class
+hu\nye\progtech\model\MapVO.class
+hu\nye\progtech\engine\Cars.class
 hu\nye\progtech\Main.class
+hu\nye\progtech\engine\Menu.class
+hu\nye\progtech\service\MapReaderException.class
+hu\nye\progtech\map\MapParser.class
+hu\nye\progtech\map\reader\MapReaderInterface.class
+hu\nye\progtech\map\reader\BufferedReaderMapReader.class
+hu\nye\progtech\engine\JatekMezo.class
+hu\nye\progtech\engine\RandomLepes.class
+hu\nye\progtech\engine\Players.class

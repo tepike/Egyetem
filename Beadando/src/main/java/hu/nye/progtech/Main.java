@@ -3,6 +3,7 @@ package hu.nye.progtech;
 
 
 import hu.nye.progtech.engine.*;
+import hu.nye.progtech.model.MapVO;
 
 import java.io.*;
 import java.util.Arrays;
@@ -10,8 +11,10 @@ import java.util.Arrays;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
          new Menu().menuLogin();
+         //new MapVO().setMapSize("Beadando/src/main/resources/map/default.txt");
+         new MapVO().setMapFromFile("default.txt");
 
 
          //System.err.println("Random szam generalva: "+new RandomLepes().randomSzam());

@@ -1,2 +1,13 @@
-C:\Users\tepi7\Egyetem\Beadando\src\main\java\hu\nye\progtech\JatekMezo.java
+C:\Users\tepi7\Egyetem\Beadando\src\main\java\hu\nye\progtech\commands\MenuCommands.java
+C:\Users\tepi7\Egyetem\Beadando\src\main\java\hu\nye\progtech\engine\Cars.java
+C:\Users\tepi7\Egyetem\Beadando\src\main\java\hu\nye\progtech\engine\IndulasiAdatok.java
+C:\Users\tepi7\Egyetem\Beadando\src\main\java\hu\nye\progtech\engine\JatekMezo.java
+C:\Users\tepi7\Egyetem\Beadando\src\main\java\hu\nye\progtech\engine\Menu.java
+C:\Users\tepi7\Egyetem\Beadando\src\main\java\hu\nye\progtech\engine\Players.java
+C:\Users\tepi7\Egyetem\Beadando\src\main\java\hu\nye\progtech\engine\RandomLepes.java
 C:\Users\tepi7\Egyetem\Beadando\src\main\java\hu\nye\progtech\Main.java
+C:\Users\tepi7\Egyetem\Beadando\src\main\java\hu\nye\progtech\map\MapParser.java
+C:\Users\tepi7\Egyetem\Beadando\src\main\java\hu\nye\progtech\map\reader\BufferedReaderMapReader.java
+C:\Users\tepi7\Egyetem\Beadando\src\main\java\hu\nye\progtech\map\reader\MapReaderInterface.java
+C:\Users\tepi7\Egyetem\Beadando\src\main\java\hu\nye\progtech\model\MapVO.java
+C:\Users\tepi7\Egyetem\Beadando\src\main\java\hu\nye\progtech\service\MapReaderException.java
