@@ -3,7 +3,7 @@ package hu.nye.progtech;
 import java.util.Scanner;
 
 //Package default encapsulation
- class IndulasiAdatok {
+class IndulasiAdatok {
     String jatekos1;
     String jatekos2;
      void mennyiJatekos(){
@@ -15,13 +15,13 @@ import java.util.Scanner;
          switch (jatekosok){
              case 1:
                  jatekos1="Player1";
-                 jatekos2="Player2";
-                 System.out.println("Jatekosok: "+jatekos1 + "| " + jatekos2);
+                 jatekos2="CPU";
+                 System.out.println("Jatekosok: "+jatekos1 + " | " + jatekos2);
                  break;
              case 2:
                  jatekos1="Player1";
-                 jatekos2="CPU";
-                 System.out.println("Jatekosok: "+jatekos1 + "| " + jatekos2);
+                 jatekos2="Player2";
+                 System.out.println("Jatekosok: "+jatekos1 + " | " + jatekos2);
                  break;
              default:
                  break;

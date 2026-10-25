@@ -8,7 +8,7 @@ public class MapVO {
     private int[][] map;
     private boolean[][] fixed;
 
-    public MapVO(int numberOfRows, int numberOfColumnsm, int [][] map, boolean[][] fixed){
+    public MapVO(int numberOfRows, int numberOfColumns, int [][] map, boolean[][] fixed){
         this.numberOfRows = numberOfRows;
         this.numberOfColumns = numberOfColumns;
         this.map = deepCopy(map);
