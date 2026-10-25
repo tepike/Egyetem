@@ -1,4 +1,4 @@
-package hu.nye.progtech.service;
+package hu.nye.progtech.map;
 
 public class MapParser {
 }

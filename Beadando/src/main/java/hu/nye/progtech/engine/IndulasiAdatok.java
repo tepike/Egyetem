@@ -1,4 +1,4 @@
-package hu.nye.progtech;
+package hu.nye.progtech.engine;
 
 import java.util.Scanner;
 
