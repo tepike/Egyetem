@@ -7,8 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Beadando" />
-        <module name="Sudoku" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Sudoku" target="21" />
+    </bytecodeTargetLevel>
   </component>
 </project>
