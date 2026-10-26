@@ -1,67 +1,27 @@
 package hu.nye.progtech.engine;
 
-    public class JatekMezo {
-        private int mezoSzeles=6;
-        private int mezopMagas=12;
+import hu.nye.progtech.model.MapVO;
 
-        private int mezo[][];
+import java.util.List;
 
-        private boolean mezoFoglalt;
-        private boolean mezoKijarat;
+public class JatekMezo {
 
-
-
-        public void JatekMezo(){
-            setMezoMeret(mezoSzeles,mezopMagas);
-            System.out.println("JatekMezo merete: "+mezo[0].length+" "+mezo.length);
-
+    public void printMap(MapVO mapVO){
+        int [][] matrix=mapVO.getMap();
+        List<String>map = mapVO.mapDataToList();
+        int sor=mapVO.getNumberOfRows(); //12
+        int oszlop=mapVO.getNumberOfColumns(); //6
+        for(int i=0;i<oszlop;i++){
+            System.out.println(" ");
+            for(int j=0;j<sor;j++){
+                if(i==0)System.out.print(map.get(j)+" ");
+                else System.out.print(map.get(i*sor+j)+" ");
+            }
         }
+        System.out.println("\n");
 
-        // Getters and Setters ------------------------------------------------------------------------------
-        public int getMezoSzeles() {
-            return mezoSzeles;
-        }
+    }
 
-        public void setMezoSzeles(int mezoSzeles) {
-            this.mezoSzeles = mezoSzeles;
-        }
 
-        public int getMezopMagas() {
-            return mezopMagas;
-        }
 
-        public void setMezopMagas(int mezopMagas) {
-            this.mezopMagas = mezopMagas;
-        }
-
-        public int[][] getMezo() {
-            return mezo;
-        }
-
-        public void setMezo(int i,int j,int adat) {
-            int[][] localMezo=new int[i][j];
-            this.mezo = localMezo;
-        }
-
-        public void setMezoMeret(int i,int j) {
-            int[][] localMezo=new int[i][j];
-            this.mezo = localMezo;
-        }
-
-        public boolean isMezoFoglalt() {
-            return mezoFoglalt;
-        }
-
-        public void setMezoFoglalt(boolean mezoFoglalt) {
-            this.mezoFoglalt = mezoFoglalt;
-        }
-
-        public boolean isMezoKijarat() {
-            return mezoKijarat;
-        }
-
-        public void setMezoKijarat(boolean mezoKijarat) {
-            this.mezoKijarat = mezoKijarat;
-        }
-        // Getters and Setters vege ---------------------------------------------------------------------------
     }

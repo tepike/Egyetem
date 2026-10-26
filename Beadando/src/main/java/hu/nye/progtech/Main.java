@@ -14,13 +14,18 @@ public class Main {
     public static void main(String[] args) throws IOException {
          new Menu().menuLogin();
          //new MapVO().setMapSize("Beadando/src/main/resources/map/default.txt");
-         new MapVO().setMapFromFile("default.txt");
+
+         MapVO defaultMap = new MapVO();
+         System.out.println("\n"+defaultMap.getMapName());
+         defaultMap.setMapName("proba.txt");
+         System.out.println("\n"+defaultMap.getMapName());
+
+         JatekMezo jatekMezo = new JatekMezo();
+         jatekMezo.printMap(defaultMap);
+         System.out.println("Matrix adat (1,0): "+defaultMap.getMap()[0][8]);
 
 
          //System.err.println("Random szam generalva: "+new RandomLepes().randomSzam());
-
-         JatekMezo JatekMezo=new JatekMezo();
-         JatekMezo.JatekMezo();
 
          Cars Car1=new Cars(true,0);
          Cars Car2=new Cars(false,0);
