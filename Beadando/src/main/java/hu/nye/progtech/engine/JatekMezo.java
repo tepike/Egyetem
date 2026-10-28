@@ -14,6 +14,7 @@ public class JatekMezo {
         Kijárat:(9) U+2705 ->   \u2705         ✅//Ha a mátrix értéke az utolsó sornál vagy (0,0) (1,0) (2,0)-nál 9 akkor előtte vagy ha jobb oldali akkor utána kijárat van!
 
      */
+    static boolean haveExit=false;
 
     public void printMap(MapVO mapVO){
         List<String>map = mapVO.mapDataToList();
@@ -23,17 +24,27 @@ public class JatekMezo {
         String [] positionHorizontal={"A","B","C","D","E","F","G","H","I","J","K","L"};
         String [] positionVertical={"1","2","3","4","5","6"};
         for(String index:positionHorizontal){
+            //Boolean kell , hogy 1x rakja előrébb és onnan a többi méret fix
             System.out.print("\t "+index+" ");
         }
         for(int i=0;i<oszlop;i++){
             System.out.print("\n"+positionVertical[i]+"\t");
             for(int j=0;j<sor;j++){
+
                 if(i==0){
+                    if(j==0&Cars.exit[0][0]==0)System.out.print("\u2705"+"\t");
+                    if(j==0&Cars.exit[0][0]!=0)System.out.print("\u26D4  "+"\t");
                     System.out.print(modells[Integer.parseInt(map.get(j))]+"\t");
+                    if(j==11&Cars.exit[1][1]==11)System.out.print("\u2705"+"\t");
+                    if(j==1&Cars.exit[1][1]!=11)System.out.print("\u26D4  "+"\t");
 
 
                 }
+
+                if(j==0&Cars.exit[0][0]==0)System.out.print("\u2705"+"\t");
+                if(j==0&Cars.exit[0][0]!=0)System.out.print("\u26D4  "+"\t");
                 else System.out.print(modells[Integer.parseInt(map.get(i*sor+j))]+"\t");
+
             }
         }
         System.out.println("\n");
