@@ -59,7 +59,7 @@ public class MapVO {
             System.out.println("Error: "+e.getMessage());
         }
 
-        System.err.println("Sorok: "+numberOfRows/numberOfColumns+" | Oszlopok: "+numberOfColumns);
+        //System.err.println("Sorok: "+numberOfRows/numberOfColumns+" | Oszlopok: "+numberOfColumns);
         this.numberOfRows = numberOfRows/numberOfColumns;
         this.numberOfColumns = numberOfColumns;
 
@@ -71,7 +71,7 @@ public class MapVO {
             for(int j=0;j<numberOfRows;j++){
                 if(i==0)map[i][j]= Integer.parseInt(mapData.get(j));
                 else map[i][j]= Integer.parseInt(mapData.get(i*numberOfRows+j));
-                System.out.print("\nMatrix betett adat ["+i+","+j+"]: "+mapData.get(i*numberOfRows+j));
+                //System.out.print("\nMatrix betett adat ["+i+","+j+"]: "+mapData.get(i*numberOfRows+j));
             }
         }
     }
