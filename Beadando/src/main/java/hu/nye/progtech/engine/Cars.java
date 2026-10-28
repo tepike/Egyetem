@@ -8,6 +8,7 @@ public class Cars {
     private boolean jatekosAuto;
     private int meret;
     private int [][] jarmuPozicio;
+    private int [][] exit=new int[0][0];
 
     public Cars(boolean jatekosAuto, int meret) {
         this.jatekosAuto = jatekosAuto;
@@ -51,5 +52,13 @@ public class Cars {
             this.jarmuPozicio[0][1]=x2;
             this.jarmuPozicio[1][1]=y2;
         }
+    }
+
+    public int[][] getExit() {
+        return exit;
+    }
+
+    public void setExit(int[][] exit) {
+        this.exit = exit;
     }
 }

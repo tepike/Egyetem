@@ -11,7 +11,7 @@ public class JatekMezo {
         Akadály:(3) \u1F6A7 -> \uD83D\uDEA7    🚧
         Fal:(0)     \u26D4  -> \u26D4          ⛔
         Üres:(4)    U+1F536 -> \uD83D\uDD36    🔶
-        Kijárat:(9) //Ha a mátrix értéke az utolsó sornál vagy (0,0) (1,0) (2,0)-nál 9 akkor előtte vagy ha jobb oldali akkor utána kijárat van!
+        Kijárat:(9) U+2705 ->   \u2705         ✅//Ha a mátrix értéke az utolsó sornál vagy (0,0) (1,0) (2,0)-nál 9 akkor előtte vagy ha jobb oldali akkor utána kijárat van!
 
      */
 
@@ -28,7 +28,7 @@ public class JatekMezo {
         for(int i=0;i<oszlop;i++){
             System.out.print("\n"+positionVertical[i]+"\t");
             for(int j=0;j<sor;j++){
-                if(i==0){ //System.out.print("\uD83D\uDE83"+" ");
+                if(i==0){
                     System.out.print(modells[Integer.parseInt(map.get(j))]+"\t");
                 }
                 else System.out.print(modells[Integer.parseInt(map.get(i*sor+j))]+"\t");
