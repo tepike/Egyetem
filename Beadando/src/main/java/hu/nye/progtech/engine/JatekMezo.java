@@ -30,6 +30,8 @@ public class JatekMezo {
             for(int j=0;j<sor;j++){
                 if(i==0){
                     System.out.print(modells[Integer.parseInt(map.get(j))]+"\t");
+
+
                 }
                 else System.out.print(modells[Integer.parseInt(map.get(i*sor+j))]+"\t");
             }
