@@ -9,7 +9,7 @@ public class Cars {
     private int meret;
     private int [][] jarmuPozicio;
     //private int [][] exit=new int[1][1];
-    static int [][] exit={{0,0},{0,11}};
+    static int [][] exit={{0,0},{11,0}};
 
     public Cars(boolean jatekosAuto, int meret) {
         this.jatekosAuto = jatekosAuto;

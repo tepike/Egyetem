@@ -24,26 +24,32 @@ public class JatekMezo {
         String [] positionHorizontal={"A","B","C","D","E","F","G","H","I","J","K","L"};
         String [] positionVertical={"1","2","3","4","5","6"};
         for(String index:positionHorizontal){
-            //Boolean kell , hogy 1x rakja előrébb és onnan a többi méret fix
+            if(index.equals(positionHorizontal[0])) System.out.print("\t");
             System.out.print("\t "+index+" ");
         }
         for(int i=0;i<oszlop;i++){
             System.out.print("\n"+positionVertical[i]+"\t");
             for(int j=0;j<sor;j++){
+                // exit={{0,0},{11,1}}; ha az elején lévő x = j-vel és i=y-al akkor
+                //exit={{j,i},{j,i}};
+                //Cars.exit[0][0]== x
+                //Cars.exit[0][1]== y
+                //System.out.print("\u2705"+"\t");
 
-                if(i==0){
-                    if(j==0&Cars.exit[0][0]==0)System.out.print("\u2705"+"\t");
-                    if(j==0&Cars.exit[0][0]!=0)System.out.print("\u26D4  "+"\t");
-                    System.out.print(modells[Integer.parseInt(map.get(j))]+"\t");
-                    if(j==11&Cars.exit[1][1]==11)System.out.print("\u2705"+"\t");
-                    if(j==1&Cars.exit[1][1]!=11)System.out.print("\u26D4  "+"\t");
-
-
+                if(j==0 && Cars.exit[0][0]==j){
+                    if(Cars.exit[0][1]==i)System.out.print("\u2705"+"\t");
+                    else System.out.print("\u26D4"+"\t");
                 }
 
-                if(j==0&Cars.exit[0][0]==0)System.out.print("\u2705"+"\t");
-                if(j==0&Cars.exit[0][0]!=0)System.out.print("\u26D4  "+"\t");
+                if(i==0){
+                    System.out.print(modells[Integer.parseInt(map.get(j))]+"\t");
+                }
                 else System.out.print(modells[Integer.parseInt(map.get(i*sor+j))]+"\t");
+
+                if(j==11 && Cars.exit[1][0]==j){
+                    if(Cars.exit[1][1]==i)System.out.print("\u2705"+"\t");
+                    else System.out.print("\u26D4"+"\t");
+                }
 
             }
         }
