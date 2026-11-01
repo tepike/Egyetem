@@ -12,8 +12,10 @@ import java.io.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws IOException {
-         new Menu().menuLogin();
+        LocateSaveFolder locateSaveFolder= new LocateSaveFolder();
+        locateSaveFolder.PrintSaveFiles();
 
+         new Menu().menuLogin();
 /*
         GenerateMap GenerateMap = new GenerateMap();
         GenerateMap.StartGeneration("test");
