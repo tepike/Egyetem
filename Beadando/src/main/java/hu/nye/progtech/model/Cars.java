@@ -8,7 +8,6 @@ public class Cars {
     private boolean jatekosAuto;
     private int meret;
     private int [][] jarmuPozicio;
-    //private int [][] exit=new int[1][1];
     static int [][] exit={{0,0},{11,0}};
 
     public Cars(boolean jatekosAuto, int meret) {
@@ -56,7 +55,7 @@ public class Cars {
     }
 
     public int[][] getExit() {
-        return exit;
+        return this.exit;
     }
 
     public void setExit(int[][] exit) {
