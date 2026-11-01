@@ -1,8 +1,6 @@
-package hu.nye.progtech.model;
+package hu.nye.progtech.map;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +12,6 @@ public class MapVO {
     private List<String> mapData= new ArrayList<String>();
     private String mapName="default.txt";
 
-
-    //Hogy tudjunk példányosítani így itt kell megtörténni a setMpaFromFile metódusnak
-    //public MapVO(int numberOfRows, int numberOfColumns, int [][] map)
-
-    //Nem szabad a példányosításba metódust megadni, mert megmarhul minden létrehozásnál. Csak a fenti adatokat szabad feldolgozni benne.
     public MapVO()   {
        try {
            setMapFromFile(this.mapName);
@@ -26,7 +19,15 @@ public class MapVO {
            System.err.println(e.getMessage());
        }
         insertDataToMatrix();
+    }
 
+    public MapVO(String name)   {
+        try {
+            setMapFromFile(name);
+        }catch (IOException e){
+            System.err.println(e.getMessage());
+        }
+        insertDataToMatrix();
     }
 
     public void setMapFromFile(String mapName) throws IOException {

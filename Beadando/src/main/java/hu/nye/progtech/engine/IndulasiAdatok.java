@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 //Package default encapsulation
 class IndulasiAdatok {
-    String jatekos1;
-    String jatekos2;
+    String player1;
+    String player2;
      void mennyiJatekos(){
          System.out.println("Adja meg a jatekosok szamat: (1 | 2)");
          int jatekosok= new Scanner(System.in).nextInt();
@@ -14,14 +14,14 @@ class IndulasiAdatok {
          }
          switch (jatekosok){
              case 1:
-                 jatekos1="Player1";
-                 jatekos2="CPU";
-                 System.out.println("Jatekosok: "+jatekos1 + " | " + jatekos2);
+                 player1="Player1";
+                 player2="CPU";
+                 System.out.println("Jatekosok: "+player1 + " | " + player2);
                  break;
              case 2:
-                 jatekos1="Player1";
-                 jatekos2="Player2";
-                 System.out.println("Jatekosok: "+jatekos1 + " | " + jatekos2);
+                 player1="Player1";
+                 player2="player2";
+                 System.out.println("Jatekosok: "+player1 + " | " + player2);
                  break;
              default:
                  break;

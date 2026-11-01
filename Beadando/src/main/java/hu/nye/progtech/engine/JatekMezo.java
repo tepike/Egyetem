@@ -1,6 +1,7 @@
 package hu.nye.progtech.engine;
 
-import hu.nye.progtech.model.MapVO;
+import hu.nye.progtech.map.MapVO;
+import hu.nye.progtech.model.Cars;
 
 import java.util.List;
 
@@ -36,8 +37,10 @@ public class JatekMezo {
                 //Cars.exit[0][1]== y
                 //System.out.print("\u2705"+"\t");
 
-                if(j==0 && Cars.exit[0][0]==j){
-                    if(Cars.exit[0][1]==i)System.out.print("\u2705"+"\t");
+
+
+                if(j==0 && Cars.getExit()[0][0]==j){
+                    if(Cars.getExit()[0][1]==i)System.out.print("\u2705"+"\t");
                     else System.out.print("\u26D4"+"\t");
                 }
 
@@ -46,8 +49,8 @@ public class JatekMezo {
                 }
                 else System.out.print(modells[Integer.parseInt(map.get(i*sor+j))]+"\t");
 
-                if(j==11 && Cars.exit[1][0]==j){
-                    if(Cars.exit[1][1]==i)System.out.print("\u2705"+"\t");
+                if(j==11 && Cars.getExit()[1][0]==j){
+                    if(Cars.getExit()[1][1]==i)System.out.print("\u2705"+"\t");
                     else System.out.print("\u26D4"+"\t");
                 }
 

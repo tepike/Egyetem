@@ -1,14 +1,11 @@
-package hu.nye.progtech.engine;
-
-import java.util.ArrayList;
-import java.util.List;
+package hu.nye.progtech.model;
 
 public class Cars {
     //Működés után bővítés String megnevezésse;
     private boolean jatekosAuto;
     private int meret;
     private int [][] jarmuPozicio;
-    static int [][] exit={{0,0},{11,0}};
+    private static int [][] exit={{0,0},{11,5}};
 
     public Cars(boolean jatekosAuto, int meret) {
         this.jatekosAuto = jatekosAuto;
@@ -54,8 +51,8 @@ public class Cars {
         }
     }
 
-    public int[][] getExit() {
-        return this.exit;
+    public static int[][] getExit() {
+        return exit;
     }
 
     public void setExit(int[][] exit) {
