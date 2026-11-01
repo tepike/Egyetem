@@ -1,4 +1,4 @@
-package hu.nye.progtech.engine;
+package hu.nye.progtech.model;
 
 import java.util.Scanner;
 
@@ -14,7 +14,7 @@ public class Players {
         return name;
     }
 
-    public void setPlayerVersusPlayers(){
+    public void setPlayerVersusPlayer(){
         Scanner scanner=new Scanner(System.in);
         System.out.println("Adja meg a jatekosok nevet\nPlayer1: ");
 

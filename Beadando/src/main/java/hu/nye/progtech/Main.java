@@ -14,24 +14,24 @@ public class Main {
     public static void main(String[] args) throws IOException {
          new Menu().menuLogin();
 
-
+/*
         GenerateMap GenerateMap = new GenerateMap();
         GenerateMap.StartGeneration("test");
+*/
 
-
-        /*
+/*
          MapVO defaultMap = new MapVO();
          JatekMezo jatekMezo = new JatekMezo();
          jatekMezo.printMap(defaultMap);
-        */
+*/
 
 
-        /*
+/*
          Cars Car1=new Cars(true,0);
          Cars Car2=new Cars(false,0);
          Car1.setJarmuPozicio(0,0);
          Car2.setJarmuPozicio(1,1,1,2);
-        */
+*/
 
 
     }
