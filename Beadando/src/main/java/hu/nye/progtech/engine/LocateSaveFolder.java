@@ -19,8 +19,9 @@ public class LocateSaveFolder {
         }
         AvaibleSavesList.add(Arrays.toString(folder.list()));
     }
-    public void PrintSaveFiles(){
+    public void PrintSavedFiles(){
        for(String s: AvaibleSavesList){
+           System.out.println(s);
        }
     }
 }

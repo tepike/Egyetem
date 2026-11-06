@@ -13,7 +13,7 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         LocateSaveFolder locateSaveFolder= new LocateSaveFolder();
-        locateSaveFolder.PrintSaveFiles();
+        locateSaveFolder.PrintSavedFiles();
 
          new Menu().menuLogin();
 /*
@@ -21,11 +21,11 @@ public class Main {
         GenerateMap.StartGeneration("test");
 */
 
-/*
+
          MapVO defaultMap = new MapVO();
          JatekMezo jatekMezo = new JatekMezo();
          jatekMezo.printMap(defaultMap);
-*/
+
 
 
 /*

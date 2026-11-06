@@ -41,13 +41,15 @@ public class MapVO {
             do{
                 i= fis.read();
 
-                if(i!=' '&&i!='\n'&&i!='\r'&&i!=-1){
+                if(i!=' '&&i!='\n'&&i!='\r'&&i!=-1&&numberOfRows<6*12){
                     numberOfRows++;
                     //System.out.println("Olvasas: "+(char)i);  Test
+                    System.out.println(numberOfRows);
                     addMapDataToList(String.valueOf((char)i));
                 }
-                if(i=='\n'){
+                if(i=='\n'&&numberOfColumns<5){
                     numberOfColumns++;
+                    System.out.println(numberOfColumns);
                     //System.out.print("\n");                   Test
                 }
 
