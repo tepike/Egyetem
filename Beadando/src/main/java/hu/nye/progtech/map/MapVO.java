@@ -36,26 +36,42 @@ public class MapVO {
 
     public void setMapFromFile(String mapName) throws IOException {
         int readHeight=0;
-        String player1="NULL";
-        String player2="NULL";
         if(!mapDataToList().isEmpty()) mapDataToList().clear();
         try {
             BufferedReader br = new BufferedReader(new FileReader("Beadando/src/main/resources/map/"+mapName));
             String line="";
             while(line!=null){
                 line=br.readLine();
+
                 if(readHeight<=6){
                     for(int i=0;i<line.length();i++){
                         addMapDataToList(String.valueOf(line.charAt(i)));
                     }
                 }
+
                 else {
                     if (line != null) {
                         String[] temp = line.split(" ");
+                        //index      0      1   2 3 4 5
+                        //Sample: Player1: Adam 2 2 3 2
+                        if (temp[0].equals("Player1:")){
+                            Players.Player1 = temp[1];
+                            int [][] Player1CarLocation={{Integer.parseInt(temp[2]),Integer.parseInt(temp[3])},{Integer.parseInt(temp[4]),Integer.parseInt(temp[5])}};
+                            for (int[] row : Player1CarLocation) {
+                                for (int num : row) {
+                                    System.out.println(num);
+                                }
+                            }
+                        }
 
-                        for (int i = 0; i < temp.length; i++) {
-                            if (temp[i].equals("Player1:")) Players.Player1 = temp[i + 1];
-                            if (temp[i].equals("Player2:")) Players.Player2 = temp[i + 1];
+                        if (temp[0].equals("Player2:")){
+                            Players.Player2 = temp[1];
+                            int [][] Player2CarLocation={{Integer.parseInt(temp[2]),Integer.parseInt(temp[3])},{Integer.parseInt(temp[4]),Integer.parseInt(temp[5])}};
+                            for (int[] row : Player2CarLocation) {
+                                for (int num : row) {
+                                    System.out.print(num);
+                                }
+                            }
                         }
                     }
                 }
