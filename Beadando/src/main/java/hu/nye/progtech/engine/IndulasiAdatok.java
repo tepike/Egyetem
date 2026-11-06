@@ -20,7 +20,7 @@ class IndulasiAdatok {
                  break;
              case 2:
                  player1="Player1";
-                 player2="player2";
+                 player2="Player2";
                  System.out.println("Jatekosok: "+player1 + " | " + player2);
                  break;
              default:

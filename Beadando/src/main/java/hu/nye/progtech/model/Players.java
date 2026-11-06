@@ -4,14 +4,11 @@ import java.util.Scanner;
 
 public class Players {
 
-    private static String name;
+    public static String Player1;
+    public static String Player2;
 
     public Players(String name){
-        this.name = name;
-    }
-
-    public static String getName() {
-        return name;
+        name = name;
     }
 
     public void setPlayerVersusPlayer(){
@@ -19,11 +16,11 @@ public class Players {
         System.out.println("Adja meg a jatekosok nevet\nPlayer1: ");
 
         String name=scanner.next();
-        Players Player1=new Players(name);
+        Player1=name;
 
         System.out.println("Player2: ");
         name=scanner.next();
-        Players Player2=new Players(name);
+        Player2=name;
 
     }
 
@@ -31,10 +28,8 @@ public class Players {
         Scanner scanner=new Scanner(System.in);
         System.out.println("Adja meg a jatekosok nevet\nPlayer1: ");
 
-        String name=scanner.next();
-        Players Player1=new Players(name);
-
-        Players Player2=new Players("CPU");
+        Player1= scanner.next();
+        Player2="CPU";
 
     }
 

@@ -1,13 +1,17 @@
 package hu.nye.progtech.map;
 
+import hu.nye.progtech.model.Players;
+
+import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MapVO {
-    private int numberOfRows;
-    private int numberOfColumns;
+    private final int numberOfRows=12;
+    private final int numberOfColumns=6;
     private int [][] map;
     private List<String> mapData= new ArrayList<String>();
     private String mapName="default.txt";
@@ -31,43 +35,39 @@ public class MapVO {
     }
 
     public void setMapFromFile(String mapName) throws IOException {
-
-        int numberOfRows=0;
-        int numberOfColumns=0;
-        if(mapDataToList().size()>0) mapDataToList().clear();
+        int readHeight=0;
+        String player1="NULL";
+        String player2="NULL";
+        if(!mapDataToList().isEmpty()) mapDataToList().clear();
         try {
-            FileInputStream fis = new FileInputStream("Beadando/src/main/resources/map/"+mapName);
-            int i;
-            do{
-                i= fis.read();
-
-                if(i!=' '&&i!='\n'&&i!='\r'&&i!=-1&&numberOfRows<6*12){
-                    numberOfRows++;
-                    //System.out.println("Olvasas: "+(char)i);  Test
-                    System.out.println(numberOfRows);
-                    addMapDataToList(String.valueOf((char)i));
+            BufferedReader br = new BufferedReader(new FileReader("Beadando/src/main/resources/map/"+mapName));
+            String line="";
+            while(line!=null){
+                line=br.readLine();
+                if(readHeight<=6){
+                    for(int i=0;i<line.length();i++){
+                        addMapDataToList(String.valueOf(line.charAt(i)));
+                    }
                 }
-                if(i=='\n'&&numberOfColumns<5){
-                    numberOfColumns++;
-                    System.out.println(numberOfColumns);
-                    //System.out.print("\n");                   Test
+                else {
+                    if (line != null) {
+                        String[] temp = line.split(" ");
+
+                        for (int i = 0; i < temp.length; i++) {
+                            if (temp[i].equals("Player1:")) Players.Player1 = temp[i + 1];
+                            if (temp[i].equals("Player2:")) Players.Player2 = temp[i + 1];
+                        }
+                    }
                 }
+                readHeight++;
+                //System.out.println("Buffered:"+line);
 
-            }while (i!=-1);
-            fis.close();
-            numberOfColumns++;
-
-            for(String eredmeny : mapDataToList()){
-               // System.err.println(eredmeny);                 Test
             }
-        } catch (Exception e) {
+            System.out.println("Player1: "+Players.Player1+"\nPlayer2: "+Players.Player2);
+            br.close();
+        }catch (Exception e){
             System.out.println("Error: "+e.getMessage());
         }
-
-        //System.err.println("Sorok: "+numberOfRows/numberOfColumns+" | Oszlopok: "+numberOfColumns);
-        this.numberOfRows = numberOfRows/numberOfColumns;
-        this.numberOfColumns = numberOfColumns;
-
     }
 
     public void insertDataToMatrix(){
