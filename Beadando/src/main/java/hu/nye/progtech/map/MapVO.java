@@ -45,6 +45,10 @@ public class MapVO {
 
                 if(readHeight<=6){
                     for(int i=0;i<line.length();i++){
+                        if(line.charAt(i)=='V'||line.charAt(i)=='H'){
+                            //Mentés valamilyen formában, hogy akadály kezdő pozi
+                            addMapDataToList("3");
+                        }else
                         addMapDataToList(String.valueOf(line.charAt(i)));
                     }
                 }
@@ -69,7 +73,7 @@ public class MapVO {
                             int [][] Player2CarLocation={{Integer.parseInt(temp[2]),Integer.parseInt(temp[3])},{Integer.parseInt(temp[4]),Integer.parseInt(temp[5])}};
                             for (int[] row : Player2CarLocation) {
                                 for (int num : row) {
-                                    System.out.print(num);
+                                    System.out.println(num);
                                 }
                             }
                         }
