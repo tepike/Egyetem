@@ -1,7 +1,6 @@
 package hu.nye.progtech.map;
 
-import hu.nye.progtech.model.Cars;
-import hu.nye.progtech.model.Players;
+import hu.nye.progtech.model.*;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -46,7 +45,27 @@ public class MapVO {
                 line=br.readLine();
 
                 if(readHeight<=6){
+
+                    //Kell egy while ciklus ami azt nézi, hogy ha Talált egy V-t pl és akkor a következő sorban lévő betű v akkor addig megy lefelé amíg olyat talál ami nem kis v. Így elkerülhető a dplázás felvétel
+
+
+
+
+
                     for(int i=0;i<line.length();i++){
+
+                        /* KIDolgozásra vár!!
+                        if(line.charAt(i)=='V'){ //Ez megegyezik az alatta lévővel   if(line.charAt(i)=='V'||line.charAt(i)=='H'||line.charAt(i)=='v'||line.charAt(i)=='h'){
+                            int index=i;
+                            Barrier.addBarrier(new Barrier(new Position(i,readHeight),1,line.charAt(i)));
+
+                            while(line.charAt(index+6)=='v') {
+                                System.out.println("A kovetkezo +6. helyen is v-van");
+                                }
+                        }
+                        */
+
+
                         if(line.charAt(i)=='V'||line.charAt(i)=='H'||line.charAt(i)=='v'||line.charAt(i)=='h'){
                             //Mentés valamilyen formában, hogy akadály kezdő pozi
                             addMapDataToList("3");

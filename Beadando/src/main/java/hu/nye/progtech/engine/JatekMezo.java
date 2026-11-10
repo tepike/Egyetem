@@ -66,6 +66,10 @@ public class JatekMezo {
 
     }
 
+    public void RecalibrateMap(){
+
+    }
+
 
 
     }
