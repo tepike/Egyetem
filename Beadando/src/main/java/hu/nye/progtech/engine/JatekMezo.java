@@ -5,6 +5,8 @@ import hu.nye.progtech.model.Cars;
 
 import java.util.List;
 
+import static hu.nye.progtech.model.Cars.*;
+
 public class JatekMezo {
     /*
         Player1:(1) \u1f683 -> \uD83D\uDE83    🚃
@@ -18,6 +20,10 @@ public class JatekMezo {
     static boolean haveExit=false;
 
     public void printMap(MapVO mapVO){
+        int player1ExitX=Cars.Player1Car.getCarExitX();
+        int player1ExitY=Cars.Player1Car.getCarExitY();
+        int player2ExitX=Cars.Player2Car.getCarExitX();
+        int player2ExitY=Cars.Player2Car.getCarExitY();
         List<String>map = mapVO.mapDataToList();
         int sor=mapVO.getNumberOfRows(); //12
         int oszlop=mapVO.getNumberOfColumns(); //6
@@ -31,29 +37,29 @@ public class JatekMezo {
         for(int i=0;i<oszlop;i++){
             System.out.print("\n"+positionVertical[i]+"\t");
             for(int j=0;j<sor;j++){
-                // exit={{0,0},{11,1}}; ha az elején lévő x = j-vel és i=y-al akkor
-                //exit={{j,i},{j,i}};
-                //Cars.exit[0][0]== x
-                //Cars.exit[0][1]== y
-                //System.out.print("\u2705"+"\t");
 
-
-
-                if(j==0 && Cars.getExit()[0][0]==j){
-                    if(Cars.getExit()[0][1]==i)System.out.print("\u2705"+"\t");
+                if(j == 0 && j == player1ExitX){
+                    if(player1ExitY==i)System.out.print("\u2705"+"\t");
                     else System.out.print("\u26D4"+"\t");
                 }
+
+
 
                 if(i==0){
                     System.out.print(modells[Integer.parseInt(map.get(j))]+"\t");
                 }
                 else System.out.print(modells[Integer.parseInt(map.get(i*sor+j))]+"\t");
 
+                if(j == 11){
+                    if(player2ExitY==i)System.out.print("\u2705"+"\t");
+                    else System.out.print("\u26D4"+"\t");
+                }
+/*
                 if(j==11 && Cars.getExit()[1][0]==j){
                     if(Cars.getExit()[1][1]==i)System.out.print("\u2705"+"\t");
                     else System.out.print("\u26D4"+"\t");
                 }
-
+*/
             }
         }
         System.out.println("\n");

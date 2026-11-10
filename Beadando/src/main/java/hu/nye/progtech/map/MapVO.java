@@ -1,5 +1,6 @@
 package hu.nye.progtech.map;
 
+import hu.nye.progtech.model.Cars;
 import hu.nye.progtech.model.Players;
 
 import java.io.BufferedReader;
@@ -18,6 +19,7 @@ public class MapVO {
 
     public MapVO()   {
        try {
+           Cars.generatePlayerObjects();
            setMapFromFile(this.mapName);
        }catch (IOException e){
            System.err.println(e.getMessage());
@@ -45,7 +47,7 @@ public class MapVO {
 
                 if(readHeight<=6){
                     for(int i=0;i<line.length();i++){
-                        if(line.charAt(i)=='V'||line.charAt(i)=='H'){
+                        if(line.charAt(i)=='V'||line.charAt(i)=='H'||line.charAt(i)=='v'||line.charAt(i)=='h'){
                             //Mentés valamilyen formában, hogy akadály kezdő pozi
                             addMapDataToList("3");
                         }else
@@ -56,26 +58,25 @@ public class MapVO {
                 else {
                     if (line != null) {
                         String[] temp = line.split(" ");
-                        //index      0      1   2 3 4 5
-                        //Sample: Player1: Adam 2 2 3 2
+                        //index      0      1   2 3
+                        //Sample: Player1: Adam 2 2
                         if (temp[0].equals("Player1:")){
                             Players.Player1 = temp[1];
-                            int [][] Player1CarLocation={{Integer.parseInt(temp[2]),Integer.parseInt(temp[3])},{Integer.parseInt(temp[4]),Integer.parseInt(temp[5])}};
-                            for (int[] row : Player1CarLocation) {
-                                for (int num : row) {
-                                    System.out.println(num);
-                                }
-                            }
+                            int exitX=Integer.parseInt(temp[2]);
+                            int exitY=Integer.parseInt(temp[3]);
+                            Cars.Player1Car.setCarExitX(exitX);
+                            Cars.Player1Car.setCarExitY(exitY);
+                            System.out.println("Player1 car set exitX:"+Cars.Player1Car.getCarExitX()+" exitY:"+Cars.Player1Car.getCarExitY());
+
                         }
 
                         if (temp[0].equals("Player2:")){
                             Players.Player2 = temp[1];
-                            int [][] Player2CarLocation={{Integer.parseInt(temp[2]),Integer.parseInt(temp[3])},{Integer.parseInt(temp[4]),Integer.parseInt(temp[5])}};
-                            for (int[] row : Player2CarLocation) {
-                                for (int num : row) {
-                                    System.out.println(num);
-                                }
-                            }
+                            int exitX=Integer.parseInt(temp[2]);
+                            int exitY=Integer.parseInt(temp[3]);
+                            Cars.Player2Car.setCarExitX(exitX);
+                            Cars.Player2Car.setCarExitY(exitY);
+                            System.out.println("Player2 car set exitX:"+Cars.Player2Car.getCarExitX()+" exitY:"+Cars.Player2Car.getCarExitY());
                         }
                     }
                 }
