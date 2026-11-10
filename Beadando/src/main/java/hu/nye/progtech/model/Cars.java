@@ -76,4 +76,14 @@ public class Cars {
     public void setCarExitY(int carExitY) {
         CarExitY = carExitY;
     }
+    public int getLength() {
+        return Length;
+    }
+    public void setLength(int length) {
+        Length = length;
+    }
+
+    public String toString(Cars c){
+        return "Jarmu adatok:\nPosition X:"+c.getXPosition()+"\nPosition Y:"+c.getYPosition()+"\nHossza:"+c.getLength()+"\nKijarat X:"+c.getCarExitX()+" Kijarat Y:"+c.getCarExitY();
+    }
 }

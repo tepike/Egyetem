@@ -50,8 +50,21 @@ public class MapVO {
                         if(line.charAt(i)=='V'||line.charAt(i)=='H'||line.charAt(i)=='v'||line.charAt(i)=='h'){
                             //Mentés valamilyen formában, hogy akadály kezdő pozi
                             addMapDataToList("3");
-                        }else
-                        addMapDataToList(String.valueOf(line.charAt(i)));
+                        }else {
+                            addMapDataToList(String.valueOf(line.charAt(i)));
+                        }
+                        if(line.charAt(i)=='1'&&Cars.Player1Car.getXPosition()==0){
+                            Cars.Player1Car.setXPosition(i+1);
+                            Cars.Player1Car.setYPosition(readHeight+1);
+                            System.out.println("\t\t\tBeolvasott text jarmu pozicio");
+                            System.out.println(Cars.Player1Car.toString(Cars.Player1Car));
+                        }
+                        if(line.charAt(i)=='2'&&Cars.Player2Car.getXPosition()==0){
+                            Cars.Player2Car.setXPosition(i+1);
+                            Cars.Player2Car.setYPosition(readHeight+1);
+                            System.out.println("\t\t\tBeolvasott text jarmu pozicio");
+                            System.out.println(Cars.Player2Car.toString(Cars.Player2Car));
+                        }
                     }
                 }
 
@@ -62,20 +75,16 @@ public class MapVO {
                         //Sample: Player1: Adam 2 2
                         if (temp[0].equals("Player1:")){
                             Players.Player1 = temp[1];
-                            int exitX=Integer.parseInt(temp[2]);
-                            int exitY=Integer.parseInt(temp[3]);
-                            Cars.Player1Car.setCarExitX(exitX);
-                            Cars.Player1Car.setCarExitY(exitY);
+                            Cars.Player1Car.setCarExitX(Integer.parseInt(temp[2]));
+                            Cars.Player1Car.setCarExitY(Integer.parseInt(temp[3]));
                             System.out.println("Player1 car set exitX:"+Cars.Player1Car.getCarExitX()+" exitY:"+Cars.Player1Car.getCarExitY());
 
                         }
 
                         if (temp[0].equals("Player2:")){
                             Players.Player2 = temp[1];
-                            int exitX=Integer.parseInt(temp[2]);
-                            int exitY=Integer.parseInt(temp[3]);
-                            Cars.Player2Car.setCarExitX(exitX);
-                            Cars.Player2Car.setCarExitY(exitY);
+                            Cars.Player2Car.setCarExitX(Integer.parseInt(temp[2]));
+                            Cars.Player2Car.setCarExitY(Integer.parseInt(temp[3]));
                             System.out.println("Player2 car set exitX:"+Cars.Player2Car.getCarExitX()+" exitY:"+Cars.Player2Car.getCarExitY());
                         }
                     }
