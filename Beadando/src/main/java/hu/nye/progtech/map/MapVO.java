@@ -1,13 +1,12 @@
 package hu.nye.progtech.map;
 
+import hu.nye.progtech.engine.JatekMezo;
 import hu.nye.progtech.model.*;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class MapVO {
     private final int numberOfRows=12;
@@ -76,13 +75,11 @@ public class MapVO {
                             Cars.Player1Car.setXPosition(i+1);
                             Cars.Player1Car.setYPosition(readHeight+1);
                             System.out.println("\t\t\tBeolvasott text jarmu pozicio");
-                            System.out.println(Cars.Player1Car.toString(Cars.Player1Car));
                         }
                         if(line.charAt(i)=='2'&&Cars.Player2Car.getXPosition()==0){
                             Cars.Player2Car.setXPosition(i+1);
                             Cars.Player2Car.setYPosition(readHeight+1);
                             System.out.println("\t\t\tBeolvasott text jarmu pozicio");
-                            System.out.println(Cars.Player2Car.toString(Cars.Player2Car));
                         }
                     }
                 }
@@ -98,6 +95,7 @@ public class MapVO {
                             Cars.Player1Car.setCarExitY(Integer.parseInt(temp[3]));
                             System.out.println("Player1 car set exitX:"+Cars.Player1Car.getCarExitX()+" exitY:"+Cars.Player1Car.getCarExitY());
 
+
                         }
 
                         if (temp[0].equals("Player2:")){
@@ -105,7 +103,10 @@ public class MapVO {
                             Cars.Player2Car.setCarExitX(Integer.parseInt(temp[2]));
                             Cars.Player2Car.setCarExitY(Integer.parseInt(temp[3]));
                             System.out.println("Player2 car set exitX:"+Cars.Player2Car.getCarExitX()+" exitY:"+Cars.Player2Car.getCarExitY());
+
                         }
+                        System.out.println("Objektum listák printelése test:");
+
                     }
                 }
                 readHeight++;
@@ -125,7 +126,15 @@ public class MapVO {
             for(int j=0;j<numberOfRows;j++){
                 if(i==0)map[i][j]= Integer.parseInt(mapData.get(j));
                 else map[i][j]= Integer.parseInt(mapData.get(i*numberOfRows+j));
-                //System.out.print("\nMatrix betett adat ["+i+","+j+"]: "+mapData.get(i*numberOfRows+j));
+            }
+        }
+    }
+
+    public void reloadDataToMatrix(){
+        for(int i=0;i<numberOfColumns;i++){
+            for(int j=0;j<numberOfRows;j++){
+                if(i==0)map[i][j]= Integer.parseInt(mapData.get(j));
+                else map[i][j]= Integer.parseInt(mapData.get(i*numberOfRows+j));
             }
         }
     }
@@ -152,6 +161,27 @@ public class MapVO {
 
     public void setMap(int[][] map,int numberOfRows,int numberOfColumns) {
         this.map = new int[numberOfRows][numberOfColumns];
+    }
+
+    public void relocateObject() {
+        //C3 -> G3    (C3 milyen objekt, hol találni? Az adott pont mennyire van a Head-től? A Head rész ütközik-e?
+        //D3 -> G3
+        System.out.print("Honnan: ");
+        String from=new Scanner(System.in).nextLine().toUpperCase();
+        System.out.print("Hova: ");
+        String to=new Scanner(System.in).nextLine().toUpperCase();
+        int fromX=from.charAt(0)-'A';
+        int fromY=Integer.parseInt(from.substring(1));
+        int toX=to.charAt(0)-'A';;
+        int toY=Integer.parseInt(to.substring(1));
+
+
+
+
+
+        System.out.println("From: "+from+" X:"+fromX+" Y:"+fromY);
+        System.out.println("To: "+to+" X:"+toX+" Y:"+toY);
+        //this.map = new int[numberOfRows][numberOfColumns];
     }
 
     public String getMapName() {

@@ -3,27 +3,44 @@ package hu.nye.progtech.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cars {
+public class Cars implements GameObjects {
     //Működés után bővítés String megnevezésse;
     public static Cars Player1Car;
     public static Cars Player2Car;
     private boolean jatekosAuto;
-    private int xPosition;
+    private int xPositionHead;
     private int YPosition;
     private int Length;
     private int CarExitX;
     private int CarExitY;
 
+    @Override
+    public List<Position> getOccupiedPositions() {
 
-    public Cars(boolean jatekosAuto, int xPosition, int YPosition,int length) {
-        this.jatekosAuto = jatekosAuto;
-        this.xPosition = xPosition;
+        List<Position> positions = new ArrayList<>();
+
+        for (int i = 0; i < Length; i++) {
+            positions.add(
+                    new Position(
+                            xPositionHead + i,
+                            YPosition
+                    )
+            );
+        }
+
+        return positions;
+    }
+
+
+    public Cars(int xPosition, int YPosition,int length) {
+        jatekosAuto = false;
+        this.xPositionHead = xPosition;
         this.YPosition = YPosition;
         this.Length = length;
     }
     public Cars(boolean jatekosAuto, int xPosition, int YPosition,int length ,int CarExitX, int CarExitY) {
         this.jatekosAuto = jatekosAuto;
-        this.xPosition = xPosition;
+        this.xPositionHead = xPosition;
         this.YPosition = YPosition;
         this.Length = length;
         this.CarExitX = CarExitX;
@@ -39,12 +56,12 @@ public class Cars {
     }
 
     public int getXPosition() {
-        return xPosition;
+        return xPositionHead;
+    }
+    public void setXPosition(int xPosition) {
+        this.xPositionHead = xPosition;
     }
 
-    public void setXPosition(int xPosition) {
-        this.xPosition = xPosition;
-    }
     public int getYPosition() {
         return YPosition;
     }
@@ -52,8 +69,9 @@ public class Cars {
         this.YPosition = YPosition;
     }
 
-    public void setJarmuPozicio(int x,int y,int x2,int y2) {
-
+    public void setJarmuPozicio(Cars car,int x,int y) {
+            this.setXPosition(x);
+            this.setYPosition(y);
     }
 
     public static void generatePlayerObjects(){
@@ -61,21 +79,23 @@ public class Cars {
          Player2Car= new Cars(true,0,0,2,0,0);
     }
 
-    public int getCarExitX() {
-        return CarExitX;
-    }
+
 
     public void setCarExitX(int carExitX) {
         CarExitX = carExitX;
     }
+    public void setCarExitY(int carExitY) {
+        CarExitY = carExitY;
+    }
 
+    public int getCarExitX() {
+        return CarExitX;
+    }
     public int getCarExitY() {
         return CarExitY;
     }
 
-    public void setCarExitY(int carExitY) {
-        CarExitY = carExitY;
-    }
+
     public int getLength() {
         return Length;
     }
@@ -83,7 +103,20 @@ public class Cars {
         Length = length;
     }
 
-    public String toString(Cars c){
-        return "Jarmu adatok:\nPosition X:"+c.getXPosition()+"\nPosition Y:"+c.getYPosition()+"\nHossza:"+c.getLength()+"\nKijarat X:"+c.getCarExitX()+" Kijarat Y:"+c.getCarExitY();
+
+
+    public int getxPositionHead() {
+        return xPositionHead;
+    }
+
+    public void setxPositionHead(int xPositionHead) {
+        this.xPositionHead = xPositionHead;
+    }
+
+    @Override
+    public String toString() {
+        return "Jarmu adatok:\n"
+                + "Position X: " + xPositionHead
+                + "\nPosition Y: " + YPosition;
     }
 }

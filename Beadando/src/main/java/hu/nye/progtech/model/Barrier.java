@@ -1,12 +1,44 @@
 package hu.nye.progtech.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Barrier {
-    public static List<Barrier> positionList;
+public class Barrier implements GameObjects {
     private Position positions;
     private int barierLength;
     private Orientation orientation;
+
+    @Override
+    public List<Position> getOccupiedPositions() {
+
+        List<Position> result = new ArrayList<>();
+
+        for (int i = 0; i < barierLength; i++) {
+
+            if (orientation == Orientation.HORIZONTAL) {
+
+                result.add(
+                        new Position(
+                                positions.getX() + i,
+                                positions.getY()
+                        )
+                );
+
+            } else {
+
+                result.add(
+                        new Position(
+                                positions.getX(),
+                                positions.getY() + i
+                        )
+                );
+
+            }
+
+        }
+
+        return result;
+    }
 
     public Barrier(Position p,int barierLength,char orientation) {
         this.positions=p;
@@ -43,13 +75,7 @@ public class Barrier {
         this.orientation = orientation;
     }
 
-    public static void addBarrier(Barrier barrier) {
-        positionList.add(barrier);
-    }
 
-    public List<Barrier> getPositionList() {
-        return positionList;
-    }
 
 
 
