@@ -14,27 +14,24 @@ import java.io.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws IOException {
-        LocateSaveFolder locateSaveFolder= new LocateSaveFolder();
-        locateSaveFolder.PrintSavedFiles();
 
-         new Menu().menuLogin();
+
+
 /*
         GenerateMap GenerateMap = new GenerateMap();
         GenerateMap.StartGeneration("test");
 */
 
 
-         MapVO defaultMap = new MapVO();
-         JatekMezo jatekMezo = new JatekMezo();
+
 
                                                                     //Akadályok beolvasása és tárolása a következő lépés
                                                 //Objektumok keresése, találta vissza adása, majd módosítása, irány eltolástól függően a tengely pozíció elejét vagy végét vesszük alapul.
-         jatekMezo.printMap(defaultMap);
-
+        new Menu().menuLogin();
          //defaultMap.relocateObject();
 
 
-
+/*
         System.out.println("KOcsi letrehoz kiir stb 1");
         Cars car = new Cars(2,4,2);
         ObjectList.addObject(car);
@@ -58,7 +55,7 @@ public class Main {
 
 
         System.out.println(ObjectList.findObjectAt(2,5)); // Eredmeny: 0,5  Ha át akarom rakni a 5,5-re a pontot akkor ugye 2,5 -> 5,5 legyen az x+3 eltolás tehát Az eredmény index 0+3,5 a fejpont
-                                                                //A Cars-ban lévő toString miatt printeli így az adatot
+*/                                                      //A Cars-ban lévő toString miatt printeli így az adatot
 
 
 

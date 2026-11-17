@@ -5,5 +5,5 @@ vV1144444V44
 44444422Hhh4
 44444444Hh44
 
-Player1: Adam 0 3
-Player2: Cpu 11 1
+Player1: Player1 0 3
+Player2: CPU 11 1

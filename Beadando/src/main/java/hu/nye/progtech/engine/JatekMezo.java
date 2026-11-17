@@ -20,54 +20,44 @@ public class JatekMezo {
     public static String [] modells={"\u26D4","\uD83D\uDE83","\uD83D\uDE8B","\uD83D\uDEA7","\uD83D\uDD36"};
     public static String [] positionHorizontal={"A","B","C","D","E","F","G","H","I","J","K","L"};
     public static String [] positionVertical={"1","2","3","4","5","6"};
-    static boolean haveExit=false;
 
     public void printMap(MapVO mapVO){
+        int map[][]=mapVO.getMap();
         int player1ExitX=Cars.Player1Car.getCarExitX();
         int player1ExitY=Cars.Player1Car.getCarExitY();
         int player2ExitY=Cars.Player2Car.getCarExitY();
-        List<String>map = mapVO.mapDataToList();
         int sor=mapVO.getNumberOfRows();
         int oszlop=mapVO.getNumberOfColumns();
+
         for(String index:positionHorizontal){
             if(index.equals(positionHorizontal[0])) System.out.print("\t");
             System.out.print("\t "+index+" ");
         }
+
         for(int i=0;i<oszlop;i++){
             System.out.print("\n"+positionVertical[i]+"\t");
             for(int j=0;j<sor;j++){
 
+                //Kijárat rajzolása
                 if(j == 0 && j == player1ExitX){
                     if(player1ExitY==i)System.out.print("\u2705"+"\t");
                     else System.out.print("\u26D4"+"\t");
                 }
 
+                System.out.print(modells[map[i][j]] + "\t");
 
-
-                if(i==0){
-                    System.out.print(modells[Integer.parseInt(map.get(j))]+"\t");
-                }
-                else System.out.print(modells[Integer.parseInt(map.get(i*sor+j))]+"\t");
-
+                //Kijárat rajzolása
                 if(j == 11){
                     if(player2ExitY==i)System.out.print("\u2705"+"\t");
                     else System.out.print("\u26D4"+"\t");
                 }
-/*
-                if(j==11 && Cars.getExit()[1][0]==j){
-                    if(Cars.getExit()[1][1]==i)System.out.print("\u2705"+"\t");
-                    else System.out.print("\u26D4"+"\t");
-                }
-*/
+
             }
         }
         System.out.println("\n");
 
     }
 
-    public void RecalibrateMap(){
-
-    }
 
 
 
