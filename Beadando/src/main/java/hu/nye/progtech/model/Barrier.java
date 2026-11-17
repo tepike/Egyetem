@@ -10,29 +10,15 @@ public class Barrier implements GameObjects {
 
     @Override
     public List<Position> getOccupiedPositions() {
-
         List<Position> result = new ArrayList<>();
 
         for (int i = 0; i < barierLength; i++) {
 
             if (orientation == Orientation.HORIZONTAL) {
-
-                result.add(
-                        new Position(
-                                positions.getX() + i,
-                                positions.getY()
-                        )
-                );
-
-            } else {
-
-                result.add(
-                        new Position(
-                                positions.getX(),
-                                positions.getY() + i
-                        )
-                );
-
+                result.add(new Position(positions.getX() + i,positions.getY()));
+            }
+            else {
+                result.add(new Position(positions.getX(), positions.getY() + i));
             }
 
         }

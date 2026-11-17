@@ -1,6 +1,5 @@
 package hu.nye.progtech.map;
 
-import hu.nye.progtech.engine.JatekMezo;
 import hu.nye.progtech.model.*;
 
 import java.io.BufferedReader;
@@ -74,12 +73,12 @@ public class MapVO {
                         if(line.charAt(i)=='1'&&Cars.Player1Car.getXPosition()==0){
                             Cars.Player1Car.setXPosition(i+1);
                             Cars.Player1Car.setYPosition(readHeight+1);
-                            System.out.println("\t\t\tBeolvasott text jarmu pozicio");
+                            System.out.println("\t\t\tBeolvasott text jarmu pozicio 1: "+Cars.Player1Car.toString());
                         }
                         if(line.charAt(i)=='2'&&Cars.Player2Car.getXPosition()==0){
                             Cars.Player2Car.setXPosition(i+1);
                             Cars.Player2Car.setYPosition(readHeight+1);
-                            System.out.println("\t\t\tBeolvasott text jarmu pozicio");
+                            System.out.println("\t\t\tBeolvasott text jarmu pozicio 2: "+Cars.Player2Car.toString());
                         }
                     }
                 }
@@ -105,7 +104,6 @@ public class MapVO {
                             System.out.println("Player2 car set exitX:"+Cars.Player2Car.getCarExitX()+" exitY:"+Cars.Player2Car.getCarExitY());
 
                         }
-                        System.out.println("Objektum listák printelése test:");
 
                     }
                 }

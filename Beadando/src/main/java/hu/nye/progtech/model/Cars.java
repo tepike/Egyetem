@@ -8,7 +8,7 @@ public class Cars implements GameObjects {
     public static Cars Player1Car;
     public static Cars Player2Car;
     private boolean jatekosAuto;
-    private int xPositionHead;
+    private int xPosition;
     private int YPosition;
     private int Length;
     private int CarExitX;
@@ -16,16 +16,10 @@ public class Cars implements GameObjects {
 
     @Override
     public List<Position> getOccupiedPositions() {
-
         List<Position> positions = new ArrayList<>();
 
         for (int i = 0; i < Length; i++) {
-            positions.add(
-                    new Position(
-                            xPositionHead + i,
-                            YPosition
-                    )
-            );
+            positions.add(new Position(xPosition + i,YPosition));
         }
 
         return positions;
@@ -34,13 +28,13 @@ public class Cars implements GameObjects {
 
     public Cars(int xPosition, int YPosition,int length) {
         jatekosAuto = false;
-        this.xPositionHead = xPosition;
+        this.xPosition = xPosition;
         this.YPosition = YPosition;
         this.Length = length;
     }
     public Cars(boolean jatekosAuto, int xPosition, int YPosition,int length ,int CarExitX, int CarExitY) {
         this.jatekosAuto = jatekosAuto;
-        this.xPositionHead = xPosition;
+        this.xPosition = xPosition;
         this.YPosition = YPosition;
         this.Length = length;
         this.CarExitX = CarExitX;
@@ -56,10 +50,10 @@ public class Cars implements GameObjects {
     }
 
     public int getXPosition() {
-        return xPositionHead;
+        return xPosition;
     }
     public void setXPosition(int xPosition) {
-        this.xPositionHead = xPosition;
+        this.xPosition = xPosition;
     }
 
     public int getYPosition() {
@@ -105,18 +99,18 @@ public class Cars implements GameObjects {
 
 
 
-    public int getxPositionHead() {
-        return xPositionHead;
+    public int getxPosition() {
+        return xPosition;
     }
 
-    public void setxPositionHead(int xPositionHead) {
-        this.xPositionHead = xPositionHead;
+    public void setxPosition(int xPosition) {
+        this.xPosition = xPosition;
     }
 
     @Override
     public String toString() {
         return "Jarmu adatok:\n"
-                + "Position X: " + xPositionHead
+                + "Position X: " + xPosition
                 + "\nPosition Y: " + YPosition;
     }
 }

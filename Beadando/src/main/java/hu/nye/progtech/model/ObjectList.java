@@ -18,7 +18,7 @@ public class ObjectList {
             }
 
         }
-        return null; //Ha nincs olyan ami foglalja
+        return null;
     }
 
     public static boolean isOccupied(int x, int y) {
@@ -41,5 +41,18 @@ public class ObjectList {
     public List<GameObjects> getVehicleList(){
         return objectList ;
     }
+
+    public static void setObjectPosition(int x1, int y1, int x2, int y2){
+        for(GameObjects object : objectList) {
+            for(Position p : object.getOccupiedPositions()) {
+                if(p.getX() == x1 && p.getY() == y1) {
+
+                }
+            }
+
+        }
+    }
+
+
 
 }

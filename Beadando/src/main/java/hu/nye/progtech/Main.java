@@ -26,6 +26,9 @@ public class Main {
 
          MapVO defaultMap = new MapVO();
          JatekMezo jatekMezo = new JatekMezo();
+
+                                                                    //Akadályok beolvasása és tárolása a következő lépés
+                                                //Objektumok keresése, találta vissza adása, majd módosítása, irány eltolástól függően a tengely pozíció elejét vagy végét vesszük alapul.
          jatekMezo.printMap(defaultMap);
 
          //defaultMap.relocateObject();
@@ -33,7 +36,7 @@ public class Main {
 
 
         System.out.println("KOcsi letrehoz kiir stb 1");
-        Cars car = new Cars(2,3,2);
+        Cars car = new Cars(2,4,2);
         ObjectList.addObject(car);
         GameObjects found = ObjectList.findObjectAt(3,3);
         System.out.println(found);
@@ -50,8 +53,12 @@ public class Main {
         }
 
         if(car.containsPosition(2,5)) {
-            System.out.println("A jármű elfoglalja ezt a mezőt: 2 5");
+            System.out.println("A jármű elfoglalja ezt a mezőt: 2 5\n Uj ki iars:");
         }
+
+
+        System.out.println(ObjectList.findObjectAt(2,5)); // Eredmeny: 0,5  Ha át akarom rakni a 5,5-re a pontot akkor ugye 2,5 -> 5,5 legyen az x+3 eltolás tehát Az eredmény index 0+3,5 a fejpont
+                                                                //A Cars-ban lévő toString miatt printeli így az adatot
 
 
 
