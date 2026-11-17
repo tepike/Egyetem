@@ -11,7 +11,7 @@ public class MapVO {
     private final int numberOfRows=12;
     private final int numberOfColumns=6;
     private int [][] map;
-    private List<String> mapData= new ArrayList<String>();
+
     private String mapName="default.txt";
 
     public MapVO()   {
