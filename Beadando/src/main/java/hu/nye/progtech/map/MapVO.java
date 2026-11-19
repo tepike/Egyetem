@@ -14,6 +14,7 @@ public class MapVO {
     static String mapName="default";
 
     public MapVO()   {
+        System.out.println("MapVO");
        try {
            Cars.generatePlayerObjects();
            setMapFromFile(mapName);
@@ -23,6 +24,7 @@ public class MapVO {
     }
 
     public MapVO(String name)   {
+        System.out.println("MapVO (String name)");
         try {
             setMapFromFile(name);
         }catch (IOException e){
@@ -33,9 +35,9 @@ public class MapVO {
     public void setMapFromFile(String mapName) throws IOException {
         int readHeight=0;
         map = new int[numberOfColumns][numberOfRows];
-
+        BufferedReader br = new BufferedReader(new FileReader("Beadando/src/main/resources/map/"+mapName+".txt"));
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Beadando/src/main/resources/map/"+mapName+".txt"));
+
             String line="";
             while(line!=null){
                 line=br.readLine();
@@ -45,7 +47,7 @@ public class MapVO {
                     for(int i=0;i<line.length();i++){
                         char c=line.charAt(i);
 
-                        if(c=='V' || c=='H' || c=='v' || c=='h'){
+                        if(c=='v' || c=='h'){
                             map[readHeight][i]=3;
                         }else {
                             map[readHeight][i]=c-'0';
