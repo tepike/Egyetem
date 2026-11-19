@@ -14,6 +14,7 @@ public class LoadGame extends MapVO {
         for(int i=0;loadMap.charAt(i)!='.';i++) {
                 fixedName=fixedName+loadMap.charAt(i);
         }
+
         System.out.println("Stringelt mapNeve: "+fixedName);
         setMapName(fixedName);
     }
