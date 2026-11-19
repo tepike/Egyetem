@@ -2,7 +2,7 @@ package hu.nye.progtech.commands;
 
 import hu.nye.progtech.map.MapVO;
 
-public class InGameCommands extends MapVO {
+public class InGameCommands  {
     private boolean Runing=true;
 
     public boolean isRuning() {
