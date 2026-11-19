@@ -1,92 +1,93 @@
 package hu.nye.progtech.map;
 
-import java.io.FileInputStream;
+import hu.nye.progtech.model.*;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class MapVO {
-    private int numberOfRows;
-    private int numberOfColumns;
+    private final int numberOfRows=12;
+    private final int numberOfColumns=6;
     private int [][] map;
-    private List<String> mapData= new ArrayList<String>();
-    private String mapName="default.txt";
+    static String mapName="default";
 
     public MapVO()   {
+        System.out.println("MapVO");
        try {
-           setMapFromFile(this.mapName);
+           Cars.generatePlayerObjects();
+           setMapFromFile(mapName);
        }catch (IOException e){
            System.err.println(e.getMessage());
        }
-        insertDataToMatrix();
     }
 
     public MapVO(String name)   {
+        System.out.println("MapVO (String name)");
         try {
             setMapFromFile(name);
         }catch (IOException e){
             System.err.println(e.getMessage());
         }
-        insertDataToMatrix();
     }
 
     public void setMapFromFile(String mapName) throws IOException {
-
-        int numberOfRows=0;
-        int numberOfColumns=0;
-        if(mapDataToList().size()>0) mapDataToList().clear();
+        int readHeight=0;
+        map = new int[numberOfColumns][numberOfRows];
+        BufferedReader br = new BufferedReader(new FileReader("Beadando/src/main/resources/map/"+mapName+".txt"));
         try {
-            FileInputStream fis = new FileInputStream("Beadando/src/main/resources/map/"+mapName);
-            int i;
-            do{
-                i= fis.read();
 
-                if(i!=' '&&i!='\n'&&i!='\r'&&i!=-1&&numberOfRows<6*12){
-                    numberOfRows++;
-                    //System.out.println("Olvasas: "+(char)i);  Test
-                    System.out.println(numberOfRows);
-                    addMapDataToList(String.valueOf((char)i));
+            String line="";
+            while(line!=null){
+                line=br.readLine();
+
+                if(readHeight<=6){
+
+                    for(int i=0;i<line.length();i++){
+                        char c=line.charAt(i);
+
+                        if(c=='v' || c=='h'){
+                            map[readHeight][i]=3;
+                        }else {
+                            map[readHeight][i]=c-'0';
+                        }
+
+                        if(line.charAt(i)=='1'&&Cars.Player1Car.getXPosition()==0){
+                            Cars.Player1Car.setXPosition(i+1);
+                            Cars.Player1Car.setYPosition(readHeight+1);
+                        }
+                        if(line.charAt(i)=='2'&&Cars.Player2Car.getXPosition()==0){
+                            Cars.Player2Car.setXPosition(i+1);
+                            Cars.Player2Car.setYPosition(readHeight+1);
+                        }
+                    }
                 }
-                if(i=='\n'&&numberOfColumns<5){
-                    numberOfColumns++;
-                    System.out.println(numberOfColumns);
-                    //System.out.print("\n");                   Test
+                else {
+                    if (line != null) {
+                        String[] temp = line.split(" ");
+                        //index      0      1   2 3
+                        //Sample: Player1: Adam 2 2
+                        if (temp[0].equals("Player1:")){
+                            Players.Player1 = temp[1];
+                            Cars.Player1Car.setCarExitX(Integer.parseInt(temp[2]));
+                            Cars.Player1Car.setCarExitY(Integer.parseInt(temp[3]));
+                        }
+
+                        if (temp[0].equals("Player2:")){
+                            Players.Player2 = temp[1];
+                            Cars.Player2Car.setCarExitX(Integer.parseInt(temp[2]));
+                            Cars.Player2Car.setCarExitY(Integer.parseInt(temp[3]));
+                        }
+
+                    }
                 }
-
-            }while (i!=-1);
-            fis.close();
-            numberOfColumns++;
-
-            for(String eredmeny : mapDataToList()){
-               // System.err.println(eredmeny);                 Test
+                readHeight++;
             }
-        } catch (Exception e) {
+            br.close();
+        }catch (Exception e){
             System.out.println("Error: "+e.getMessage());
         }
-
-        //System.err.println("Sorok: "+numberOfRows/numberOfColumns+" | Oszlopok: "+numberOfColumns);
-        this.numberOfRows = numberOfRows/numberOfColumns;
-        this.numberOfColumns = numberOfColumns;
-
-    }
-
-    public void insertDataToMatrix(){
-        map=new int[numberOfColumns][numberOfRows];
-        for(int i=0;i<numberOfColumns;i++){
-            for(int j=0;j<numberOfRows;j++){
-                if(i==0)map[i][j]= Integer.parseInt(mapData.get(j));
-                else map[i][j]= Integer.parseInt(mapData.get(i*numberOfRows+j));
-                //System.out.print("\nMatrix betett adat ["+i+","+j+"]: "+mapData.get(i*numberOfRows+j));
-            }
-        }
-    }
-
-    public void addMapDataToList(String data){
-        mapDataToList().add(data);
-    }
-
-    public List<String> mapDataToList() {
-        return mapData;
     }
 
     public int getNumberOfRows() {
@@ -99,10 +100,6 @@ public class MapVO {
 
     public int[][] getMap() {
         return map;
-    }
-
-    public void setMap(int[][] map,int numberOfRows,int numberOfColumns) {
-        this.map = new int[numberOfRows][numberOfColumns];
     }
 
     public String getMapName() {
