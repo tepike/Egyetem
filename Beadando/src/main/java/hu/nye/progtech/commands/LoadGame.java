@@ -10,12 +10,8 @@ public class LoadGame extends MapVO {
         new LocateSaveFolder().PrintSavedFiles();
         int index=new Scanner(System.in).nextInt();
         String loadMap= new LocateSaveFolder().getSavedGame(index - 1);
-        String fixedName = "";
-        for(int i=0;loadMap.charAt(i)!='.';i++) {
-                fixedName=fixedName+loadMap.charAt(i);
-        }
-        System.out.println("Stringelt mapNeve: "+fixedName);
-        setMapName(fixedName);
+        String [] fixedName = loadMap.split(".txt");
+        setMapName(fixedName[0]);
     }
 
 }

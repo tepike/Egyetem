@@ -11,7 +11,8 @@ public class StartGame extends InGameCommands{
 
     public void StartGame(){
         System.out.println("Game Started");
-        new JatekMezo();
+        new JatekMezo().printMap(new MapVO(MapVO.mapName));
+
         while(isRuning()){
             System.out.print("Mit szeretnél?\nBevitel:");
             String bevitel= new Scanner(System.in).nextLine();
