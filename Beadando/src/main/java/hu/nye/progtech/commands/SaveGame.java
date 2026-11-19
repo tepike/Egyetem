@@ -24,6 +24,7 @@ public class SaveGame extends LocateSaveFolder {
             for(int y=0;y<6;y++){
                 for(int x=0;x<12;x++){
                     bw.write(String.valueOf(map[y][x]));
+                    System.out.println("Txt-be irt adat[y]:"+y+"[x]:"+x+" ="+map[y][x]);
                 }
                 bw.newLine();
             }

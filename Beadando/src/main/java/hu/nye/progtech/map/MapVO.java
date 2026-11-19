@@ -1,17 +1,20 @@
 package hu.nye.progtech.map;
 
+import hu.nye.progtech.engine.LocateSaveFolder;
 import hu.nye.progtech.model.*;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.Buffer;
 import java.util.*;
 
 public class MapVO {
     private final int numberOfRows=12;
     private final int numberOfColumns=6;
     private int [][] map;
-    static String mapName="default";
+    public static String mapName="default";
 
     public MapVO()   {
         System.out.println("MapVO");
@@ -35,7 +38,9 @@ public class MapVO {
     public void setMapFromFile(String mapName) throws IOException {
         int readHeight=0;
         map = new int[numberOfColumns][numberOfRows];
-        BufferedReader br = new BufferedReader(new FileReader("Beadando/src/main/resources/map/"+mapName+".txt"));
+        //String location=SaveFolder+ File.separator+"default.txt";
+        BufferedReader br= new BufferedReader((new FileReader(new LocateSaveFolder().SaveFolder+ File.separator+mapName+".txt")));
+        //BufferedReader br = new BufferedReader(new FileReader("Beadando/src/main/resources/map/"+mapName+".txt"));
         try {
 
             String line="";
