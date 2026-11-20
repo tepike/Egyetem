@@ -36,11 +36,16 @@ public class MapVO {
     }
 
     public void setMapFromFile(String mapName) throws IOException {
+        BufferedReader br;
         int readHeight=0;
         map = new int[numberOfColumns][numberOfRows];
         //String location=SaveFolder+ File.separator+"default.txt";
-        BufferedReader br= new BufferedReader((new FileReader(new LocateSaveFolder().SaveFolder+ File.separator+mapName+".txt")));
-        //BufferedReader br = new BufferedReader(new FileReader("Beadando/src/main/resources/map/"+mapName+".txt"));
+       if(mapName.equals("default")) {
+           br = new BufferedReader(new FileReader("Beadando/src/main/resources/map/default.txt"));
+       }
+       else {
+            br= new BufferedReader((new FileReader(new LocateSaveFolder().SaveFolder+ File.separator+mapName+".txt")));
+       }
         try {
 
             String line="";
