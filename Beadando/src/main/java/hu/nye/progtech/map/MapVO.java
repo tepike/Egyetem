@@ -13,7 +13,7 @@ import java.util.*;
 public class MapVO {
     private final int numberOfRows=12;
     private final int numberOfColumns=6;
-    private int [][] map;
+    private String [][] map;
     public static String mapName="default";
 
     public MapVO()   {
