@@ -16,7 +16,7 @@ public class SaveGame extends LocateSaveFolder {
 
     public void saveDefaultGame() throws FileNotFoundException {
 
-        int [][] map=new MapVO().getMap();
+        String [][] map=new MapVO().getMap();
         String location=SaveFolder+ File.separator+"default.txt";
 
         try {
@@ -40,7 +40,7 @@ public class SaveGame extends LocateSaveFolder {
 
     public void savetGame(MapVO map,String mentes) throws FileNotFoundException {
 
-        int [][] mapSave=map.getMap();
+        String [][] mapSave=map.getMap();
         String location=SaveFolder+ File.separator+mentes+".txt";
 
         try {
