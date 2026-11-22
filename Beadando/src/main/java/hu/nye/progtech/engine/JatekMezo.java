@@ -2,6 +2,7 @@ package hu.nye.progtech.engine;
 
 import hu.nye.progtech.map.MapVO;
 import hu.nye.progtech.model.Cars;
+import hu.nye.progtech.model.GameObjects;
 
 import java.util.List;
 
@@ -66,4 +67,4 @@ public class JatekMezo {
 
 
 
-    }
+}

@@ -97,7 +97,9 @@ public class Cars implements GameObjects {
         Length = length;
     }
 
-
+    public Orientation getOrientation() {
+        return Orientation.HORIZONTAL;
+    }
 
     public int getxPosition() {
         return xPosition;

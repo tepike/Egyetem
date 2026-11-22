@@ -8,12 +8,14 @@ import java.util.SequencedCollection;
 
 public class Barrier implements GameObjects {
     private static List<Barrier> barriers= new ArrayList<Barrier>();
-    private Position positions;
+    private Position position;
     private int barierLength;
     private Orientation orientation;
 
-    public static List<Barrier> getBarriers() {
-        return barriers;
+    public Barrier(Position position, int barierLength, Orientation orientation) {
+        this.position = position;
+        this.barierLength = barierLength;
+        this.orientation = orientation;
     }
 
 
@@ -25,10 +27,10 @@ public class Barrier implements GameObjects {
         for (int i = 0; i < barierLength; i++) {
 
             if (orientation == Orientation.HORIZONTAL) {
-                result.add(new Position(positions.getX() + i,positions.getY()));
+                result.add(new Position(position.getX() + i,position.getY()));
             }
             else {
-                result.add(new Position(positions.getX(), positions.getY() + i));
+                result.add(new Position(position.getX(), position.getY() + i));
             }
 
         }
@@ -36,54 +38,50 @@ public class Barrier implements GameObjects {
         return result;
     }
 
-    public void addBarier(Position p, int barierLength, char orientation) {
-        List<Barrier> localBarriers = new ArrayList<>();
-        this.positions=p;
-        this.barierLength=barierLength;
-        if(orientation=='v') {
-            this.orientation = Orientation.VERTICAL;
-        }
-        else {
-            this.orientation = Orientation.HORIZONTAL;
-        }
-        barriers.add((Barrier) localBarriers);
-    }
-
     public static void getBariersFromMap(MapVO mapVo) {
         String map[][]=mapVo.getMap();
-        List<Position> positions= new ArrayList<>();
+        barriers.clear();
+        List<Position> position= new ArrayList<Position>();
+
 
         for(int i=0;i<mapVo.getNumberOfColumns();i++){
             for(int j=0;j<mapVo.getNumberOfRows();j++){
-                //System.out.print("\ni:"+i+" j:"+j);
                 String element=map[i][j];
                 if(element.equals("h")){
-                    positions.add(new Position(j,i));
+                    position.add(new Position(j,i));
                 }
             }
+            if(!position.isEmpty()){
+                Barrier barrier =new Barrier(position.get(0),position.size(),Orientation.HORIZONTAL);
+                barriers.add(barrier);
+                ObjectList.addObject(barrier);
+                position.clear();
+            }
         }
-        System.out.print("\n--------------------------------------\n");
+        position.clear();
+
         for(int i=0;i<mapVo.getNumberOfRows();i++){
             for(int j=0;j<mapVo.getNumberOfColumns();j++){
-                //System.out.print("\ni:"+i+" j:"+j);
                 String element=map[j][i];
                 if(element.equals("v")){
-                    positions.add(new Position(i,j));
+                    position.add(new Position(i,j));
                 }
             }
+            if(!position.isEmpty()){
+                Barrier barrier =new Barrier(position.get(0),position.size(),Orientation.VERTICAL);
+                barriers.add(barrier);
+                ObjectList.addObject(barrier);
+                position.clear();
+            }
         }
-        for(Position p:positions){
-            System.out.println("\nKapott poziciok y: "+p.getY()+" | x: "+p.getX());
-        }
-        //barriers.add((Barrier) Barrier.barriers);
     }
 
-    public Position getPositions() {
-        return positions;
+    public Position getPosition() {
+        return position;
     }
 
-    public void setPositions(Position positions) {
-        this.positions = positions;
+    public void setPosition(Position position) {
+        this.position = position;
     }
 
     public int getBarierLength() {
@@ -98,12 +96,16 @@ public class Barrier implements GameObjects {
         return orientation;
     }
 
+    public int getLength(){
+        return barierLength;
+    }
+
     public void setOrientation(Orientation orientation) {
         this.orientation = orientation;
     }
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "Akadály x: "+position.getX() +" y: "+position.getY() +" mérete: "+barierLength+" iránya: "+orientation;
+    }
 }
