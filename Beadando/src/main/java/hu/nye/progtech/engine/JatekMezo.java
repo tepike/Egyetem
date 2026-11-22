@@ -22,7 +22,7 @@ public class JatekMezo {
     public static String [] positionVertical={"1","2","3","4","5","6"};
 
     public void printMap(MapVO mapVO){
-        int map[][]=mapVO.getMap();
+        String map[][]=mapVO.getMap();
         int player1ExitX=Cars.Player1Car.getCarExitX();
         int player1ExitY=Cars.Player1Car.getCarExitY();
         int player2ExitY=Cars.Player2Car.getCarExitY();
@@ -44,7 +44,12 @@ public class JatekMezo {
                     else System.out.print("\u26D4"+"\t");
                 }
 
-                System.out.print(modells[map[i][j]] + "\t");
+                if(map[i][j].equals("v")||map[i][j].equals("h")){
+                    System.out.print(modells[3] + "\t");
+                }else{
+                    System.out.print(modells[Integer.parseInt(map[i][j])] + "\t");
+                }
+
 
                 //Kijárat rajzolása
                 if(j == 11){
