@@ -48,7 +48,30 @@ public class Main {
 
 
 
+    /*
+    Game class
 
+    - List<GameObject> gameObjects;
+
+    load()
+    start() / init()
+    run (game-loop)
+    onEvent()
+    draw()
+
+    UI or CLI class
+    I/O to and from command-line
+
+
+    class CPUPlayer extends Player;
+
+
+    < left
+    > right
+    ^ up
+    v down
+
+     */
 
 
     }
