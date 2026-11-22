@@ -14,19 +14,8 @@ import java.io.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws IOException {
+                                    //Objektumok keresése, találta vissza adása, majd módosítása, irány eltolástól függően a tengely pozíció elejét vagy végét vesszük alapul.
 
-
-
-/*
-        GenerateMap GenerateMap = new GenerateMap();
-        GenerateMap.StartGeneration("test");
-*/
-
-
-
-
-                                                                    //Akadályok beolvasása és tárolása a következő lépés
-                                                //Objektumok keresése, találta vissza adása, majd módosítása, irány eltolástól függően a tengely pozíció elejét vagy végét vesszük alapul.
         new Menu().menuLogin();
          //defaultMap.relocateObject();
 

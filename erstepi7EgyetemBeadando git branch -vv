@@ -1,0 +1,310 @@
+[33mcommit d758919e7bdaa679c5d156d71162f6ee3cdb9c2f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Thu Nov 19 19:35:22 2026 +0100
+
+    Default map creation fix
+
+[33mcommit f6fef25bad334375133f3f70ad16ba6cd6472354[m
+Merge: e6c4151 73b01d6
+Author: Tepliczki Adam <tepliczki.adam@gmail.com>
+Date:   Thu Nov 19 11:15:34 2026 +0100
+
+    Load saved game correctly from documents, and if there is not found a default map, it will create automatically
+
+[33mcommit 73b01d6b963c33222bd0b291af9877e3c3dfb517[m
+Author: Tepliczki Adam <tepliczki.adam@gmail.com>
+Date:   Thu Nov 19 11:14:25 2026 +0100
+
+    Load saved game correctly from documents, and if there is not found a default map, it will create automatically
+
+[33mcommit e6c4151ee9d1ed973a5a907de37267d930c04161[m
+Merge: 5dc0cd9 abdeb99
+Author: Tepliczki Adam <tepliczki.adam@gmail.com>
+Date:   Thu Nov 19 10:46:47 2026 +0100
+
+    Merge branch 'LoadGame'
+    
+    # Conflicts:
+    #       Beadando/src/main/java/hu/nye/progtech/commands/LoadGame.java
+
+[33mcommit abdeb994b8b3beb34a63f93efeb5fdd5ded7feb7[m
+Author: Tepliczki Adam <tepliczki.adam@gmail.com>
+Date:   Thu Nov 19 10:46:23 2026 +0100
+
+    Branch update
+
+[33mcommit 5dc0cd98fa9648a2e32995d5df26a5e55375a189[m
+Author: Tepliczki Adam <tepliczki.adam@gmail.com>
+Date:   Thu Nov 19 10:43:43 2026 +0100
+
+    New branch
+
+[33mcommit 801f801088eab882f28ef4d4893cc0d6bf921f84[m
+Merge: 82c8537 df89580
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Thu Nov 19 10:05:25 2026 +0100
+
+    Merge branch 'RefactorModel'
+    
+    # Conflicts:
+    #       Beadando/target/classes/hu/nye/progtech/Main.class
+
+[33mcommit df895807a72d20faf51268efb83a45396a68d25a[m[33m ([m[1;32mRefactorModel[m[33m)[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Thu Nov 19 10:03:59 2026 +0100
+
+    Push to origin to develope from notebook
+
+[33mcommit ac6e259531573904929a9658bc5db2285d001cde[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Tue Nov 17 19:57:37 2026 +0100
+
+    Upload unfinished progress
+
+[33mcommit ae10ce9dbd385a05a1254b96c842ea92fba326ed[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Tue Nov 17 16:30:11 2026 +0100
+
+    Changed files test
+
+[33mcommit 3f5b621be67bf49a5f24733288364ee4e248061f[m[33m ([m[1;32mBlocks[m[33m)[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Tue Nov 17 16:29:01 2026 +0100
+
+    MapVO lista elhagyása redundacia végett, új branch verzió kezelése
+
+[33mcommit 496831494b8971ba161320b0d0a654912029fd92[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Wed Nov 11 17:56:52 2026 +0100
+
+    Interface létrehozása az autók/akadályok tárolására, megtalálására, terület foglaltság vizsgálatára
+
+[33mcommit 17e1dd9519504cc866bd90873c3afb2fc2698ea5[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Tue Nov 10 18:52:04 2026 +0100
+
+    Akadály osztály létrehozása és txt-ből való adatok beolvasásának elkezdése.
+
+[33mcommit b9d98426af1363ec0fa09b5c9b3c9b6b7ff08b2e[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Tue Nov 10 17:57:22 2026 +0100
+
+    PlayerCars position recognise from txt
+
+[33mcommit 52be393cc62f0a5fe366b5977e9d2d6fda0c9fbd[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Tue Nov 10 17:38:35 2026 +0100
+
+    Create and use Car objects to recognize exit point for each player
+
+[33mcommit ca84fcc8d7faf14f8defbf83dc0badf2d669b139[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Mon Nov 9 19:16:55 2026 +0100
+
+    Fixed block objects at map reading
+
+[33mcommit 11f75cd47e9707e92ee31ac389ddd85153edbd83[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Fri Nov 6 19:14:59 2026 +0100
+
+    Read player names and player car positions from map txt
+
+[33mcommit 283d271b8bb3c2755a380f19072ae9d94704ed23[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Fri Nov 6 18:56:12 2026 +0100
+
+    Read files with  BufferedReader
+
+[33mcommit 82c85375bffbf2afc27beb3168052c2cd15c91b4[m
+Merge: 9b552f7 f9b26ad
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Fri Nov 6 18:14:05 2026 +0100
+
+    Merging
+
+[33mcommit f9b26adbab01c85d146c4e36a2dc2e395748e36f[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Fri Nov 6 18:06:26 2026 +0100
+
+    First step of reading block objects from txt
+
+[33mcommit 9b552f7918b7977331eb9cb9253f2644e1bbc096[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Nov 1 14:51:14 2026 +0100
+
+    Import Maven & Plugins without configuration
+
+[33mcommit 2dee91f7d5750a916024a6e3b915ed24dd46c19c[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Nov 1 14:51:05 2026 +0100
+
+    Import Maven & Plugins without configuration
+
+[33mcommit c1226c58bf73847e1a81da4e561bc954fa383d51[m
+Merge: ea89d27 aec3a7e
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Nov 1 13:27:25 2026 +0100
+
+    Merge branch 'Engine'
+
+[33mcommit aec3a7e36fb4d1398b0aad54066bce961d227677[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Nov 1 13:24:45 2026 +0100
+
+    Locate and create saving folder
+
+[33mcommit a39834bbf72745e075cc1f891f345181a8f18f3f[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Nov 1 12:53:05 2026 +0100
+
+    Remove Services
+
+[33mcommit ea89d27b1aa263a7065c4652f23ac6392f280adc[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Nov 1 12:51:22 2026 +0100
+
+    Services remove
+
+[33mcommit 43a023304f15608abcc227ea3ed1ac70cdd6a34c[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Nov 1 12:49:05 2026 +0100
+
+    Create new classes and change models path in src
+
+[33mcommit a3e851e237d89ed8e08a3d8bd8e96eab0bbb1dc7[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Nov 1 11:57:53 2026 +0100
+
+    Loade costume map without object datas
+
+[33mcommit 1dc9a8cc5b731deb5678f5509374cf7b04579929[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Nov 1 11:36:30 2026 +0100
+
+    Remove trash classes
+
+[33mcommit 8367461fa4ede02ed622aaf3cbdef4bc3c7dafd7[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Nov 1 09:21:34 2026 +0100
+
+    Kijárati pontok feldolgozása és megjelenítése a pályán
+
+[33mcommit cb9feb8a9dafa1b08ef0dd1520cef90846abe0ad[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Wed Oct 28 18:59:49 2026 +0100
+
+    Show exits on map 20% complete
+
+[33mcommit c528830530810020cdfb00ee17261173de888a78[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Wed Oct 28 17:59:17 2026 +0100
+
+    Ellenorzo printek kivetele
+
+[33mcommit 585ce89c21fa6739a940811a2cb23fd5fedcee48[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Wed Oct 28 17:51:13 2026 +0100
+
+    fájl hozzáadás
+
+[33mcommit f0159751dd52b523699507c1ca81f3d2332f1a3e[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Wed Oct 28 17:50:43 2026 +0100
+
+    test
+
+[33mcommit 5e47915168cfeaeedd377deb5ed9836ccc3689ea[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Wed Oct 28 17:00:06 2026 +0100
+
+    Visual improvement
+
+[33mcommit 50921d5efcb7a0d56f0235bdcd07fc042d4e7a3b[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Mon Oct 26 18:57:05 2026 +0100
+
+    Listába feldolgozott txt importálása mátrixba
+
+[33mcommit b67cc2e90244c121c860525a87dc500ca0de841e[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Oct 25 09:13:32 2026 +0100
+
+    Read the txt file and collect the results into a list for processing.
+
+[33mcommit b6a7f0b8551351d736d121cbc6b3e5455bb41775[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Oct 25 07:27:30 2026 +0100
+
+    Syncron test
+
+[33mcommit 403565b31e1dbdb317615f9b47663d9846aba58b[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Oct 25 07:23:41 2026 +0100
+
+    Upload files
+
+[33mcommit fdc354947c5036bcd40d262df99f35a7a95f70f8[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Oct 25 07:21:55 2026 +0100
+
+    Folyamatok fejlesztese
+
+[33mcommit df7d64de84c232d6aa4ad9a32546cd7c1fb5e3b3[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Tue Oct 6 21:45:41 2026 +0200
+
+    Az összehasonlítás hibás, debuggolni kell!
+
+[33mcommit c2c77ea548fd44b3f1c18dd36353cd7ce090d1e1[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Tue Oct 6 21:26:18 2026 +0200
+
+    deepCopy mátrixok összehasonlítása
+
+[33mcommit be1cb6635544d18ec73f26ee7b72a78e8b9d17c3[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Tue Oct 6 21:03:39 2026 +0200
+
+    Rögzített elemek helyesen tárolt alakjának printelése
+
+[33mcommit 8b27ed6b92f8ce81e6f31bcf041187a610199c60[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Tue Oct 6 20:53:25 2026 +0200
+
+    Beolvasott adatok ellenorzese
+
+[33mcommit caadaf402d9fdac922252ba790c4f727db50e080[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Tue Oct 6 20:40:55 2026 +0200
+
+    Elso szünetig elért állapot
+
+[33mcommit 4a384b74be1c06f238d12aa20179e45fd782fa9f[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Tue Oct 6 20:16:38 2026 +0200
+
+    Sudoku fájl beolvasás és hibakezelés kidolgozása
+
+[33mcommit cb4b18505afdc83b5bee31fd87a4383c552ff271[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Tue Oct 6 20:15:05 2026 +0200
+
+    Sudoku fájl beolvasás és hibakezelés kidolgozása
+
+[33mcommit 6c0d938089d7cdc6777ee1e0028d18603bff7301[m
+Author: Tepliczki Ádám <tepliczki.adam@gmail.com>
+Date:   Sun Oct 4 14:11:20 2026 +0200
+
+    Projekt felepites alapko
+
+[33mcommit 452111069c9253aa75b19a011676e16f4bbc7a57[m
+Author: Tepliczki Adam <68915039+tepike@users.noreply.github.com>
+Date:   Wed Sep 16 17:55:48 2026 +0200
+
+    Update README.md
+
+[33mcommit 7a549feef29d8c13c294b1516ff259b94bac6a34[m
+Author: Tepliczki Adam <68915039+tepike@users.noreply.github.com>
+Date:   Wed Sep 16 17:55:34 2026 +0200
+
+    Create README.md
