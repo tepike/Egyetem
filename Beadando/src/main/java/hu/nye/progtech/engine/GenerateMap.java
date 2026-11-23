@@ -1,7 +1,7 @@
 package hu.nye.progtech.engine;
 
 import hu.nye.progtech.map.MapVO;
-
+// Map generator
 public class GenerateMap {
 
     public void StartGeneration(){
