@@ -2,16 +2,20 @@ package hu.nye.progtech.commands;
 
 import hu.nye.progtech.engine.LocateSaveFolder;
 import hu.nye.progtech.map.MapVO;
-import hu.nye.progtech.model.Cars;
+import hu.nye.progtech.model.Car;
 import hu.nye.progtech.model.Player;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.util.List;
+
 
 
 public class SaveGame extends LocateSaveFolder {
+    List<Player> players=new MapVO().getPlayers();
+
 
     public void saveDefaultGame() throws FileNotFoundException {
 
@@ -52,17 +56,17 @@ public class SaveGame extends LocateSaveFolder {
             }
             bw.newLine();
             //Player1: Player1 0 3
-            bw.write("Player1: "+ Player.Player1+
+            bw.write("Player1: "+ players.getFirst().playerName+
                                     " "+
-                                    Cars.Player1Car.getCarExitX()+
+                                   players.getFirst().getExitX()+
                                     " "+
-                                    Cars.Player1Car.getCarExitY()
+                    players.getFirst().getExitY()
             );
-            bw.write("Player2: "+ Player.Player2+
+            bw.write("Player2: "+ players.getLast().playerName+
                     " "+
-                    Cars.Player2Car.getCarExitX()+
+                    players.getLast().getExitY()+
                     " "+
-                    Cars.Player2Car.getCarExitY()
+                    players.getLast().getExitY()
             );
             bw.close();
         }catch(Exception e){

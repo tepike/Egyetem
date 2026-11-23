@@ -7,17 +7,19 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapVO {
-    private final int numberOfRows=12;
-    private final int numberOfColumns=6;
+    static final int numberOfRows=12;
+    static final int numberOfColumns=6;
     private String [][] map;
     public static String mapName="default";
+    private List<Player> players;
 
     public MapVO()   {
         System.out.println("MapVO");
        try {
-           Cars.generatePlayerObjects();
            setMapFromFile(mapName);
        }catch (IOException e){
            System.err.println(e.getMessage());
@@ -45,6 +47,8 @@ public class MapVO {
             br= new BufferedReader((new FileReader(new LocateSaveFolder().SaveFolder+ File.separator+mapName+".txt")));
        }
         try {
+            List<Position> player1Position = new ArrayList<Position>();
+            List<Position> player2Position = new ArrayList<Position>();
 
             String line="";
             while(line!=null){
@@ -56,31 +60,33 @@ public class MapVO {
                         char c=line.charAt(i);
                         map[readHeight][i]=Character.toString(c);
 
-                        if(line.charAt(i)=='1'&&Cars.Player1Car.getXPosition()==0){
-                            Cars.Player1Car.setXPosition(i+1);
-                            Cars.Player1Car.setYPosition(readHeight+1);
+                        if(line.charAt(i)=='1'){
+                            player1Position.add(new Position(readHeight,i));
                         }
-                        if(line.charAt(i)=='2'&&Cars.Player2Car.getXPosition()==0){
-                            Cars.Player2Car.setXPosition(i+1);
-                            Cars.Player2Car.setYPosition(readHeight+1);
+                        if(line.charAt(i)=='2'){
+                            player2Position.add(new Position(readHeight,i));
                         }
                     }
+
                 }
                 else {
                     if (line != null) {
                         String[] temp = line.split(" ");
-                        //index      0      1   2 3
-                        //Sample: Player1: Adam 2 2
                         if (temp[0].equals("Player1:")){
-                            Player.Player1 = temp[1];
-                            Cars.Player1Car.setCarExitX(Integer.parseInt(temp[2]));
-                            Cars.Player1Car.setCarExitY(Integer.parseInt(temp[3]));
+                            Player player1= new Player(temp[1]);
+                            System.out.println("\nNeve: "+player1.playerName+" Kilepesi adat x: "+player1.getExitX()+" y: "+player1.getExitY());
+                            players.add(player1);
+                            players.getFirst().setExitX(Integer.parseInt(temp[2]));
+                            players.getFirst().setExitY(Integer.parseInt(temp[3]));
+
                         }
 
                         if (temp[0].equals("Player2:")){
-                            Player.Player2 = temp[1];
-                            Cars.Player2Car.setCarExitX(Integer.parseInt(temp[2]));
-                            Cars.Player2Car.setCarExitY(Integer.parseInt(temp[3]));
+                            Player player2= new Player(temp[1]);
+                            players.add(player2);
+                            players.getLast().setExitX(Integer.parseInt(temp[2]));
+                            players.getLast().setExitY(Integer.parseInt(temp[3]));
+
                         }
 
                     }
@@ -88,6 +94,9 @@ public class MapVO {
                 readHeight++;
             }
             br.close();
+            for(Player p: players){
+                System.out.println("\nNeve: "+p.playerName+" Kilepesi adat x: "+p.getExitX()+" y: "+p.getExitY());
+            }
         }catch (Exception e){
             System.out.println("Error: "+e.getMessage());
         }
@@ -111,5 +120,9 @@ public class MapVO {
 
     public void setMapName(String mapName) {
         MapVO.mapName = mapName;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
     }
 }

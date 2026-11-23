@@ -5,11 +5,6 @@ import java.util.List;
 public interface GameObjects {
     List<Position> getOccupiedPositions();
 
-    Orientation getOrientation();
-    int getLength();
-
-
-
     default boolean containsPosition(int x, int y) {
         for(Position p : getOccupiedPositions()) {
             if(p.getX() == x && p.getY() == y) {

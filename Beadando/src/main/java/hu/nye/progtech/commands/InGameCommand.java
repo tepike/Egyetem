@@ -49,8 +49,8 @@ public class InGameCommand extends MapVO {
         System.out.print("\nUtolso x:" + selectedObject.getOccupiedPositions().getLast().getX());
         System.out.print("\nElso y:" + selectedObject.getOccupiedPositions().getFirst().getY());
         System.out.print("\nUtolso y:" + selectedObject.getOccupiedPositions().getLast().getY());
-        System.out.print("\nHossz: " + selectedObject.getLength());
-        System.out.print("\nOrientáció: " + selectedObject.getOrientation());
+
+
 
 
         System.out.println("\nObjektum kiválasztva");

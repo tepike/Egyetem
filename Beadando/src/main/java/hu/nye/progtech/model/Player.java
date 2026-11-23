@@ -3,34 +3,34 @@ package hu.nye.progtech.model;
 import java.util.Scanner;
 
 public class Player {
+    static int playerNumber = 1;
+    public static String playerName;
+    private int exitX;
+    private int exitY;
 
-    public static String Player1;
-    public static String Player2;
-
-    public Player(String name){
-        name = name;
+    public Player(String name) {
+        playerName = name;
+        playerNumber++;
     }
 
-    public void setPlayerVersusPlayer(){
-        Scanner scanner=new Scanner(System.in);
-        System.out.println("Adja meg a jatekosok nevet\nPlayer1: ");
-
-        String name=scanner.next();
-        Player1=name;
-
-        System.out.println("Player2: ");
-        name=scanner.next();
-        Player2=name;
-
+    public int getExitX() {
+        return exitX;
     }
 
-    public void setPlayerVersusComputer(){
-        Scanner scanner=new Scanner(System.in);
-        System.out.println("Adja meg a jatekosok nevet\nPlayer1: ");
+    public void setExitX(int exitX) {
+        this.exitX = exitX;
+    }
 
-        Player1= scanner.next();
-        Player2="CPU";
+    public int getExitY() {
+        return exitY;
+    }
 
+    public void setExitY(int exitY) {
+        this.exitY = exitY;
+    }
+
+    public static void resetPlayer() {
+        playerNumber = 1;
     }
 
 }

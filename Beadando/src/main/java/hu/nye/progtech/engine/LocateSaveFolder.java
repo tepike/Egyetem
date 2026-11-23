@@ -10,29 +10,29 @@ import java.util.List;
 
 public class LocateSaveFolder {
 
-    public String UserFolder=System.getProperty("user.home") + File.separator + "Documents";
-    public String SaveFolder=UserFolder+File.separator+"RushHourNYE";
+    public String UserFolder = System.getProperty("user.home") + File.separator + "Documents";
+    public String SaveFolder = UserFolder + File.separator + "RushHourNYE";
 
-    File folder=new File(SaveFolder);
+    File folder = new File(SaveFolder);
 
-   public LocateSaveFolder(){
-        if(!folder.exists()){
+    public LocateSaveFolder() {
+        if (!folder.exists()) {
             folder.mkdir();
         }
     }
 
-    public void PrintSavedFiles(){
-        String [] files=folder.list();
-            if(files==null || files.length==0){
-                System.out.print("Nincs mentett játék");
-                try {
-                    new SaveGame().saveDefaultGame();
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-                //saveDefaultGame();
-                return;
+    public void PrintSavedFiles() {
+        String[] files = folder.list();
+        if (files == null || files.length == 0) {
+            System.out.print("Nincs mentett játék");
+            try {
+                new SaveGame().saveDefaultGame();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            //saveDefaultGame();
+            return;
+        }
         for (int i = 0; i < files.length; i++) {
 
             String fileName = files[i];
@@ -47,12 +47,12 @@ public class LocateSaveFolder {
         }
     }
 
-    public String getSavedGame(int index){
-        String [] files=folder.list();
-        if(files==null || files.length==0){
+    public String getSavedGame(int index) {
+        String[] files = folder.list();
+        if (files == null || files.length == 0) {
             return null;
         }
-       return files[index];
+        return files[index];
     }
 
 }

@@ -8,15 +8,15 @@ public class GenerateMap {
         System.out.println("Generating empty named map like default Map");
         MapVO defaultMap = new MapVO();
         if(!defaultMap.getMapName().equals("default")) {defaultMap.setMapName("default");}
-        JatekMezo jatekMezo = new JatekMezo();
-        jatekMezo.printMap(defaultMap);
+       // JatekMezo jatekMezo = new JatekMezo();
+        //jatekMezo.printMap(defaultMap);
     }
     public void StartGeneration(String mapName){
         System.out.println("Generating costume map");
 
         MapVO costumeMap= new MapVO("test"+".txt");
         costumeMap.setMapName(mapName);
-        JatekMezo jatekMezo = new JatekMezo();
-        jatekMezo.printMap(costumeMap);
+        //JatekMezo jatekMezo = new JatekMezo();
+        //jatekMezo.printMap(costumeMap);
     }
 }

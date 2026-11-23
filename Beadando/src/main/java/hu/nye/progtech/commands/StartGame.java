@@ -12,8 +12,7 @@ public class StartGame extends InGameCommand {
 
     public void StartGame(){
         System.out.println("Game Started");
-        new JatekMezo().printMap(new MapVO(MapVO.mapName));
-        Barrier barrier;
+        new JatekMezo(new MapVO(MapVO.mapName));
         Barrier.getBariersFromMap(new MapVO(MapVO.mapName));
 
         while(isRuning()){
