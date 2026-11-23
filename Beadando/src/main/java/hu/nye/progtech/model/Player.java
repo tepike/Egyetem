@@ -2,12 +2,12 @@ package hu.nye.progtech.model;
 
 import java.util.Scanner;
 
-public class Players {
+public class Player {
 
     public static String Player1;
     public static String Player2;
 
-    public Players(String name){
+    public Player(String name){
         name = name;
     }
 

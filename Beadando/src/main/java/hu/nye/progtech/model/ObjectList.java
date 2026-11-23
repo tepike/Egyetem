@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ObjectList {
-    private static List<GameObjects> objectList =new ArrayList<>();
+    private static final List<GameObjects> objectList =new ArrayList<>();
 
 
 

@@ -7,8 +7,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.Buffer;
-import java.util.*;
 
 public class MapVO {
     private final int numberOfRows=12;
@@ -74,13 +72,13 @@ public class MapVO {
                         //index      0      1   2 3
                         //Sample: Player1: Adam 2 2
                         if (temp[0].equals("Player1:")){
-                            Players.Player1 = temp[1];
+                            Player.Player1 = temp[1];
                             Cars.Player1Car.setCarExitX(Integer.parseInt(temp[2]));
                             Cars.Player1Car.setCarExitY(Integer.parseInt(temp[3]));
                         }
 
                         if (temp[0].equals("Player2:")){
-                            Players.Player2 = temp[1];
+                            Player.Player2 = temp[1];
                             Cars.Player2Car.setCarExitX(Integer.parseInt(temp[2]));
                             Cars.Player2Car.setCarExitY(Integer.parseInt(temp[3]));
                         }
@@ -112,6 +110,6 @@ public class MapVO {
     }
 
     public void setMapName(String mapName) {
-        this.mapName = mapName;
+        MapVO.mapName = mapName;
     }
 }

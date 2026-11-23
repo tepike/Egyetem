@@ -23,7 +23,7 @@ public class JatekMezo {
     public static String [] positionVertical={"1","2","3","4","5","6"};
 
     public void printMap(MapVO mapVO){
-        String map[][]=mapVO.getMap();
+        String[][] map =mapVO.getMap();
         int player1ExitX=Cars.Player1Car.getCarExitX();
         int player1ExitY=Cars.Player1Car.getCarExitY();
         int player2ExitY=Cars.Player2Car.getCarExitY();

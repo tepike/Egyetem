@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.SequencedCollection;
 
 public class Barrier implements GameObjects {
-    private static List<Barrier> barriers= new ArrayList<Barrier>();
+    private static final List<Barrier> barriers= new ArrayList<Barrier>();
     private Position position;
     private int barierLength;
     private Orientation orientation;
@@ -39,7 +39,7 @@ public class Barrier implements GameObjects {
     }
 
     public static void getBariersFromMap(MapVO mapVo) {
-        String map[][]=mapVo.getMap();
+        String[][] map =mapVo.getMap();
         barriers.clear();
         List<Position> position= new ArrayList<Position>();
 

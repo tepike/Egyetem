@@ -6,7 +6,7 @@ import hu.nye.progtech.map.MapVO;
 import java.util.Map;
 import java.util.Scanner;
 
-public class MenuCommands extends StartGame{
+public class MenuCommand extends StartGame{
     static boolean jatekMod=false;
     static boolean jatekosok = false;
 

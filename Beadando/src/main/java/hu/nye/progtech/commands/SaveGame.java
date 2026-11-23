@@ -3,13 +3,12 @@ package hu.nye.progtech.commands;
 import hu.nye.progtech.engine.LocateSaveFolder;
 import hu.nye.progtech.map.MapVO;
 import hu.nye.progtech.model.Cars;
-import hu.nye.progtech.model.Players;
+import hu.nye.progtech.model.Player;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.util.Map;
 
 
 public class SaveGame extends LocateSaveFolder {
@@ -53,13 +52,13 @@ public class SaveGame extends LocateSaveFolder {
             }
             bw.newLine();
             //Player1: Player1 0 3
-            bw.write("Player1: "+ Players.Player1+
+            bw.write("Player1: "+ Player.Player1+
                                     " "+
                                     Cars.Player1Car.getCarExitX()+
                                     " "+
                                     Cars.Player1Car.getCarExitY()
             );
-            bw.write("Player2: "+ Players.Player2+
+            bw.write("Player2: "+ Player.Player2+
                     " "+
                     Cars.Player2Car.getCarExitX()+
                     " "+
