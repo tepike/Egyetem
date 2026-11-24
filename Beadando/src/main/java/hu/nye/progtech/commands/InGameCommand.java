@@ -7,7 +7,7 @@ import hu.nye.progtech.model.Position;
 
 import java.util.Scanner;
 
-public class InGameCommand extends MapVO {
+public class InGameCommand  {
     private boolean Runing = true;
 
     public boolean isRuning() {

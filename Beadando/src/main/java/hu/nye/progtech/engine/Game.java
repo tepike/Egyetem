@@ -1,19 +1,28 @@
 package hu.nye.progtech.engine;
 
+import hu.nye.progtech.map.MapVO;
 import hu.nye.progtech.model.GameObjects;
 
 import java.util.List;
 
 public class Game {
+    MapVO map = new MapVO();
     List<GameObjects> gameObjects;
+    String [][] mapObjects;
 
+    public void load(String mapName){
+        map.setupMap(mapName);
+    }
     public void load(){
-
+        System.out.println("Load process started");
+        map.setupMap("default2");
     }
 
     public void init(){
-
+        mapObjects = map.getMap();
+        System.out.println("Game.init.mapObjects.length: "+mapObjects.length+" "+mapObjects[0].length);
     }
+
 
     public void run(){
 
@@ -24,6 +33,7 @@ public class Game {
     }
 
     public void draw(){
+        new JatekMezo().printMap(map);
 
     }
 

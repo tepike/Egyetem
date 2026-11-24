@@ -15,9 +15,11 @@ public class MapVO {
     static final int numberOfColumns=6;
     private String [][] map;
     public static String mapName="default";
-    private List<Player> players;
+    public List<Player> players;
+    public List<Barrier> barriers;
+    public List<Car> cars=new  ArrayList<>();
 
-    public MapVO()   {
+    public void setupMap()   {
         System.out.println("MapVO");
        try {
            setMapFromFile(mapName);
@@ -26,7 +28,7 @@ public class MapVO {
        }
     }
 
-    public MapVO(String name)   {
+    public void setupMap(String name)   {
         System.out.println("MapVO (String name)");
         try {
             setMapFromFile(name);
@@ -36,10 +38,10 @@ public class MapVO {
     }
 
     public void setMapFromFile(String mapName) throws IOException {
+
         BufferedReader br;
         int readHeight=0;
         map = new String[numberOfColumns][numberOfRows];
-        //String location=SaveFolder+ File.separator+"default.txt";
        if(mapName.equals("default")) {
            br = new BufferedReader(new FileReader("Beadando/src/main/resources/map/default.txt"));
        }
@@ -47,9 +49,6 @@ public class MapVO {
             br= new BufferedReader((new FileReader(new LocateSaveFolder().SaveFolder+ File.separator+mapName+".txt")));
        }
         try {
-            List<Position> player1Position = new ArrayList<Position>();
-            List<Position> player2Position = new ArrayList<Position>();
-
             String line="";
             while(line!=null){
                 line=br.readLine();
@@ -61,10 +60,11 @@ public class MapVO {
                         map[readHeight][i]=Character.toString(c);
 
                         if(line.charAt(i)=='1'){
-                            player1Position.add(new Position(readHeight,i));
+                            System.out.println("\nPozicio 1-re x: " + readHeight+" y: "+i);
                         }
                         if(line.charAt(i)=='2'){
-                            player2Position.add(new Position(readHeight,i));
+                            System.out.println("\nPozicio 2-re x: " + readHeight+" y: "+i);
+
                         }
                     }
 
@@ -74,19 +74,18 @@ public class MapVO {
                         String[] temp = line.split(" ");
                         if (temp[0].equals("Player1:")){
                             Player player1= new Player(temp[1]);
-                            System.out.println("\nNeve: "+player1.playerName+" Kilepesi adat x: "+player1.getExitX()+" y: "+player1.getExitY());
-                            players.add(player1);
-                            players.getFirst().setExitX(Integer.parseInt(temp[2]));
-                            players.getFirst().setExitY(Integer.parseInt(temp[3]));
-
+                            player1.setExitX(Integer.parseInt(temp[2]));
+                            player1.setExitY(Integer.parseInt(temp[3]));
+                            Player.players.add(player1);
+                            System.out.println("\nNeve: "+ Player.players.get(0).playerName+" Kilepesi adat x: "+ Player.players.get(0).getExitX()+" y: "+ Player.players.get(0).getExitY());
                         }
 
                         if (temp[0].equals("Player2:")){
                             Player player2= new Player(temp[1]);
-                            players.add(player2);
-                            players.getLast().setExitX(Integer.parseInt(temp[2]));
-                            players.getLast().setExitY(Integer.parseInt(temp[3]));
-
+                            player2.setExitX(Integer.parseInt(temp[2]));
+                            player2.setExitY(Integer.parseInt(temp[3]));
+                            Player.players.add(player2);
+                            System.out.println("\nNeve: "+ Player.players.get(1).playerName+" Kilepesi adat x: "+ Player.players.get(1).getExitX()+" y: "+ Player.players.get(1).getExitY());
                         }
 
                     }
@@ -94,12 +93,11 @@ public class MapVO {
                 readHeight++;
             }
             br.close();
-            for(Player p: players){
-                System.out.println("\nNeve: "+p.playerName+" Kilepesi adat x: "+p.getExitX()+" y: "+p.getExitY());
-            }
+
         }catch (Exception e){
             System.out.println("Error: "+e.getMessage());
         }
+
     }
 
     public int getNumberOfRows() {

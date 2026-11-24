@@ -6,13 +6,14 @@ import hu.nye.progtech.map.MapVO;
 import java.util.Map;
 import java.util.Scanner;
 
-public class MenuCommand extends StartGame{
+public class MenuCommand {
+    MapVO map=new MapVO();
     static boolean jatekMod=false;
     static boolean jatekosok = false;
 
     static int errorNumbers=0;
     public void availableCommands(){
-        System.out.println("Jatek inditas: "+getMapName()+" (Start)");
+        System.out.println("Jatek inditas: "+ map.getMapName()+" (Start)");
         System.out.println("Jatek betoltes (load)");
         System.out.println("Jatekos modok (Modes)"); //PvP PvCpu
         System.out.println("Nev megadas (Names)");  //Jatekos nev felvetel
@@ -29,11 +30,11 @@ public class MenuCommand extends StartGame{
        switch(command){
            case "start":
                System.out.println("Betölteni kivánt pálya: ");
-               StartGame();
+               //StartGame();
                break;
            case "load":
                new LoadGame().LoadGame();
-               StartGame();
+               //StartGame();
                break;
            case "modes":
                System.out.println("Mode");

@@ -5,8 +5,10 @@ import hu.nye.progtech.model.Car;
 import hu.nye.progtech.model.Player;
 
 import java.util.List;
+import java.util.Map;
 
-public class JatekMezo {
+public class JatekMezo  {
+
     /*
         Player1:(1) \u1f683 -> \uD83D\uDE83    🚃
         PLayer2:(2) \u1F68B -> \uD83D\uDE8B    🚋
@@ -23,21 +25,18 @@ public class JatekMezo {
 
     // new JatekMezo(new MapVO());
     // dependency injection
-    public JatekMezo(MapVO map) {
-        printMap(map);
-    }
 
+    public void printMap(MapVO map){
 
-
-    public void printMap(MapVO mapVO){
-        String[][] map =mapVO.getMap();
-        List<Player> players = mapVO.getPlayers();
-        int player1ExitX= players.get(0).getExitX();
-        int player1ExitY= players.get(0).getExitY();
-        int player2ExitX= players.get(1).getExitX();
-        int player2ExitY= players.get(1).getExitY();
-        int sor=mapVO.getNumberOfRows();
-        int oszlop=mapVO.getNumberOfColumns();
+        String[][] map2 =map.getMap();
+        List<Player> player =map.getPlayers();
+        System.out.println("\nNeve: "+ Player.players.get(0).playerName+" Kilepesi adat x: "+Player.players.get(0).getExitX()+" y: "+Player.players.get(0).getExitY());
+        int player1ExitX= Player.players.get(0).getExitX();
+        int player1ExitY= Player.players.get(0).getExitY();
+        int player2ExitX= Player.players.get(1).getExitX();
+        int player2ExitY= Player.players.get(1).getExitY();
+        int sor=map.getNumberOfRows();
+        int oszlop=map.getNumberOfColumns();
 
         for(String index:positionHorizontal){
             if(index.equals(positionHorizontal[0])) System.out.print("\t");
@@ -54,10 +53,10 @@ public class JatekMezo {
                     else System.out.print("\u26D4"+"\t");
                 }
 
-                if(map[i][j].equals("v")||map[i][j].equals("h")){
+                if(map2[i][j].equals("v")||map2[i][j].equals("h")){
                     System.out.print(modells[3] + "\t");
                 }else{
-                    System.out.print(modells[Integer.parseInt(map[i][j])] + "\t");
+                    System.out.print(modells[Integer.parseInt(map2[i][j])] + "\t");
                 }
 
 

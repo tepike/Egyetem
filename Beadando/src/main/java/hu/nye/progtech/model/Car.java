@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Car implements GameObjects {
+    List<Car> cars = new ArrayList<Car>();
     static final int Length = 2;
-    static Player player;
     static Position pos;
 
 
@@ -20,10 +20,9 @@ public class Car implements GameObjects {
         return positions;
     }
 
-    public Car(Position pos, Player player) {
+    public Car(Position pos) {
         this.pos.setX(pos.getX());
         this.pos.setY(pos.getY());
-        this.player = player;
     }
 
     public int getLength() {

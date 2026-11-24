@@ -14,7 +14,8 @@ import java.util.List;
 
 
 public class SaveGame extends LocateSaveFolder {
-    List<Player> players=new MapVO().getPlayers();
+    MapVO map=new MapVO();
+    List<Player> players=map.getPlayers();
 
 
     public void saveDefaultGame() throws FileNotFoundException {
