@@ -6,7 +6,7 @@ import hu.nye.progtech.model.GameObjects;
 import java.util.List;
 
 public class Game {
-    MapVO map = new MapVO();
+    public MapVO map = new MapVO();
     List<GameObjects> gameObjects;
     String [][] mapObjects;
 
@@ -15,12 +15,12 @@ public class Game {
     }
     public void load(){
         System.out.println("Load process started");
-        map.setupMap("default2");
+        map.setupMap("default");
     }
 
     public void init(){
         mapObjects = map.getMap();
-        System.out.println("Game.init.mapObjects.length: "+mapObjects.length+" "+mapObjects[0].length);
+        //System.out.println("Game.init.mapObjects.length: "+mapObjects.length+" "+mapObjects[0].length);
     }
 
 

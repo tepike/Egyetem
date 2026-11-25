@@ -23,14 +23,15 @@ public class JatekMezo  {
     public static String [] positionHorizontal={"A","B","C","D","E","F","G","H","I","J","K","L"};
     public static String [] positionVertical={"1","2","3","4","5","6"};
 
+
+
     // new JatekMezo(new MapVO());
     // dependency injection
 
     public void printMap(MapVO map){
-
         String[][] map2 =map.getMap();
         List<Player> player =map.getPlayers();
-        System.out.println("\nNeve: "+ Player.players.get(0).playerName+" Kilepesi adat x: "+Player.players.get(0).getExitX()+" y: "+Player.players.get(0).getExitY());
+        //System.out.println("\nNeve: "+ Player.players.get(0).playerName+" Kilepesi adat x: "+Player.players.get(0).getExitX()+" y: "+Player.players.get(0).getExitY());
         int player1ExitX= Player.players.get(0).getExitX();
         int player1ExitY= Player.players.get(0).getExitY();
         int player2ExitX= Player.players.get(1).getExitX();

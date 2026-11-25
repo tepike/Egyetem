@@ -10,6 +10,7 @@ public class Player {
     public String playerName;
     private int exitX;
     private int exitY;
+    public List<Car> car;
 
     public Player(String name) {
         playerName = name;

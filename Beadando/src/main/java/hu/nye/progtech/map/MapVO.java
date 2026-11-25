@@ -15,12 +15,10 @@ public class MapVO {
     static final int numberOfColumns=6;
     private String [][] map;
     public static String mapName="default";
-    public List<Player> players;
-    public List<Barrier> barriers;
-    public List<Car> cars=new  ArrayList<>();
+    public List<Player> player;
+    public List<Car> car;
 
     public void setupMap()   {
-        System.out.println("MapVO");
        try {
            setMapFromFile(mapName);
        }catch (IOException e){
@@ -29,7 +27,6 @@ public class MapVO {
     }
 
     public void setupMap(String name)   {
-        System.out.println("MapVO (String name)");
         try {
             setMapFromFile(name);
         }catch (IOException e){
@@ -60,10 +57,13 @@ public class MapVO {
                         map[readHeight][i]=Character.toString(c);
 
                         if(line.charAt(i)=='1'){
-                            System.out.println("\nPozicio 1-re x: " + readHeight+" y: "+i);
+                            //System.out.println("\nPozicio 1-re x: " + readHeight+" y: "+i);
+                            Player.players.getFirst().car.add(new Car(new Position(readHeight,i)));
+
                         }
                         if(line.charAt(i)=='2'){
-                            System.out.println("\nPozicio 2-re x: " + readHeight+" y: "+i);
+                            //System.out.println("\nPozicio 2-re x: " + readHeight+" y: "+i);
+                            Player.players.getLast().car.add(new Car(new Position(readHeight,i)));
 
                         }
                     }
@@ -77,7 +77,7 @@ public class MapVO {
                             player1.setExitX(Integer.parseInt(temp[2]));
                             player1.setExitY(Integer.parseInt(temp[3]));
                             Player.players.add(player1);
-                            System.out.println("\nNeve: "+ Player.players.get(0).playerName+" Kilepesi adat x: "+ Player.players.get(0).getExitX()+" y: "+ Player.players.get(0).getExitY());
+                            //System.out.println("\nNeve: "+ Player.players.get(0).playerName+" Kilepesi adat x: "+ Player.players.get(0).getExitX()+" y: "+ Player.players.get(0).getExitY());
                         }
 
                         if (temp[0].equals("Player2:")){
@@ -85,7 +85,7 @@ public class MapVO {
                             player2.setExitX(Integer.parseInt(temp[2]));
                             player2.setExitY(Integer.parseInt(temp[3]));
                             Player.players.add(player2);
-                            System.out.println("\nNeve: "+ Player.players.get(1).playerName+" Kilepesi adat x: "+ Player.players.get(1).getExitX()+" y: "+ Player.players.get(1).getExitY());
+                           // System.out.println("\nNeve: "+ Player.players.get(1).playerName+" Kilepesi adat x: "+ Player.players.get(1).getExitX()+" y: "+ Player.players.get(1).getExitY());
                         }
 
                     }
@@ -121,6 +121,6 @@ public class MapVO {
     }
 
     public List<Player> getPlayers() {
-        return players;
+        return player;
     }
 }

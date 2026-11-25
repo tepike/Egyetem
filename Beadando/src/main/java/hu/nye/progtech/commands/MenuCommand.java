@@ -1,19 +1,16 @@
 package hu.nye.progtech.commands;
 
-import hu.nye.progtech.engine.LocateSaveFolder;
-import hu.nye.progtech.map.MapVO;
-
-import java.util.Map;
+import hu.nye.progtech.engine.Game;
 import java.util.Scanner;
 
-public class MenuCommand {
-    MapVO map=new MapVO();
+public class MenuCommand extends Game {
+
     static boolean jatekMod=false;
     static boolean jatekosok = false;
 
     static int errorNumbers=0;
     public void availableCommands(){
-        System.out.println("Jatek inditas: "+ map.getMapName()+" (Start)");
+        System.out.println("Jatek inditas: "+ map.mapName+" (Start)");
         System.out.println("Jatek betoltes (load)");
         System.out.println("Jatekos modok (Modes)"); //PvP PvCpu
         System.out.println("Nev megadas (Names)");  //Jatekos nev felvetel
