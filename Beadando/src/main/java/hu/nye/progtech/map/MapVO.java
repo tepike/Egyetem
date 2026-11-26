@@ -15,6 +15,7 @@ public class MapVO {
     static final int numberOfColumns = 6;
     private String[][] map;
     public static String mapName = "default";
+    private final List<Player> player=new ArrayList<>();
 
 
     public void setupMap() {
@@ -34,7 +35,6 @@ public class MapVO {
     }
 
     public void setMapFromFile(String mapName) throws IOException {
-        List<Car> playerCar = new ArrayList<>();
 
         BufferedReader br;
         int readHeight = 0;
@@ -46,17 +46,35 @@ public class MapVO {
         }
         try {
             String line = "";
+            player.clear();
             while (line != null) {
                 line = br.readLine();
 
-                if (readHeight != 6) {
+                if (readHeight <= 6) {
 
                     for (int i = 0; i < line.length(); i++) {
                         char c = line.charAt(i);
                         map[readHeight][i] = Character.toString(c);
                     }
-                    readHeight++;
+
                 }
+
+
+                if (line != null) {
+                    String[] temp = line.split(" ");
+                    if (temp[0].equals("Player1:")) {
+                        player.add(new Player(temp[1]));
+                        player.getFirst().setExitX(Integer.parseInt(temp[2]));
+                        player.getFirst().setExitY(Integer.parseInt(temp[3]));
+                    }
+                    if (temp[0].equals("Player2:")) {
+                        player.add(new Player(temp[1]));
+                        player.getLast().setExitX(Integer.parseInt(temp[2]));
+                        player.getLast().setExitY(Integer.parseInt(temp[3]));
+                    }
+                }
+
+                readHeight++;
 
             }
             br.close();
@@ -87,5 +105,7 @@ public class MapVO {
         MapVO.mapName = mapName;
     }
 
-
+    public List<Player> getPlayer() {
+        return player;
+    }
 }

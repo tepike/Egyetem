@@ -28,15 +28,14 @@ public class JatekMezo  {
     // new JatekMezo(new MapVO());
     // dependency injection
 
-    public void printMap(MapVO map,Player player){
+    public void printMap(MapVO map,List<Player> player){
         String[][] mapData =map.getMap();
-        List<Player> playerObject=player.players;
 
-        System.out.println("\nNeve: "+ playerObject.get(0).playerName+" Kilepesi adat x: "+playerObject.get(0).getExitX()+" y: "+playerObject.get(0).getExitY());
-        int player1ExitX= playerObject.get(0).getExitX();
-        int player1ExitY= playerObject.get(0).getExitY();
-        int player2ExitX= playerObject.get(1).getExitX();
-        int player2ExitY= playerObject.get(1).getExitY();
+        System.out.println("\nNeve: "+ player.get(0).playerName+" Kilepesi adat x: "+player.get(0).getExitX()+" y: "+player.get(0).getExitY());
+        int player1ExitX= player.get(0).getExitX();
+        int player1ExitY= player.get(0).getExitY();
+        int player2ExitX= player.get(1).getExitX();
+        int player2ExitY= player.get(1).getExitY();
 
 
         int sor=map.getNumberOfRows();

@@ -23,6 +23,14 @@ public class LocateSaveFolder {
         }
     }
 
+    public boolean FileExist() {
+        String[] files = folder.list();
+        if (files == null) {
+            return false;
+        }
+        return true;
+    }
+
     public void PrintSavedFiles(MapVO mapVO) {
         String[] files = folder.list();
         if (files == null || files.length == 0) {
@@ -56,5 +64,6 @@ public class LocateSaveFolder {
         }
         return files[index];
     }
+
 
 }
