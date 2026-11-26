@@ -12,23 +12,20 @@ import java.io.FileWriter;
 import java.util.List;
 
 
-
 public class SaveGame extends LocateSaveFolder {
-    MapVO map=new MapVO();
-    List<Player> players=map.getPlayers();
 
 
-    public void saveDefaultGame() throws FileNotFoundException {
-
-        String [][] map=new MapVO().getMap();
-        String location=SaveFolder+ File.separator+"default.txt";
+    public void saveDefaultGame(MapVO mapVO) throws FileNotFoundException {
+        mapVO.setupMap();
+        String[][] map = mapVO.getMap();
+        String location = SaveFolder + File.separator + "default.txt";
 
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(location));
-            for(int y=0;y<6;y++){
-                for(int x=0;x<12;x++){
+            for (int y = 0; y < 6; y++) {
+                for (int x = 0; x < 12; x++) {
                     bw.write(String.valueOf(map[y][x]));
-                    System.out.println("Txt-be irt adat[y]:"+y+"[x]:"+x+" ="+map[y][x]);
+                    System.out.println("Txt-be irt adat[y]:" + y + " [x]:" + x + " = " + map[y][x]);
                 }
                 bw.newLine();
             }
@@ -37,26 +34,27 @@ public class SaveGame extends LocateSaveFolder {
             bw.newLine();
             bw.write("Player2: CPU 11 1");
             bw.close();
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.print(e.getMessage());
         }
     }
 
-    public void savetGame(MapVO map,String mentes) throws FileNotFoundException {
+    public void savetGame(MapVO map, String mentes) throws FileNotFoundException {
 
-        String [][] mapSave=map.getMap();
-        String location=SaveFolder+ File.separator+mentes+".txt";
+        String[][] mapSave = map.getMap();
+        String location = SaveFolder + File.separator + mentes + ".txt";
 
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(location));
-            for(int y=0;y<6;y++){
-                for(int x=0;x<12;x++){
+            for (int y = 0; y < 6; y++) {
+                for (int x = 0; x < 12; x++) {
                     bw.write(String.valueOf(mapSave[y][x]));
                 }
                 bw.newLine();
             }
             bw.newLine();
             //Player1: Player1 0 3
+            /*
             bw.write("Player1: "+ players.getFirst().playerName+
                                     " "+
                                    players.getFirst().getExitX()+
@@ -69,8 +67,10 @@ public class SaveGame extends LocateSaveFolder {
                     " "+
                     players.getLast().getExitY()
             );
+            */
+
             bw.close();
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.print(e.getMessage());
         }
     }

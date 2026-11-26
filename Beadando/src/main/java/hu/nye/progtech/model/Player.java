@@ -1,20 +1,19 @@
 package hu.nye.progtech.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
 public class Player {
-    public static final List<Player> players = new ArrayList<Player>();
-    static int playerNumber = 1;
+    static int playerId = 1;
     public String playerName;
     private int exitX;
     private int exitY;
     public List<Car> car;
+    public List<Player> players;
 
     public Player(String name) {
         playerName = name;
-        playerNumber++;
+        playerId++;
     }
 
     public int getExitX() {
@@ -34,7 +33,15 @@ public class Player {
     }
 
     public static void resetPlayer() {
-        playerNumber = 1;
+        playerId = 1;
+    }
+
+    public List<Car> getCar() {
+        return car;
+    }
+
+    public void setCar(List<Car> car) {
+        this.car = car;
     }
 
 }

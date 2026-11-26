@@ -3,6 +3,7 @@ package hu.nye.progtech;
 
 
 import hu.nye.progtech.engine.*;
+import hu.nye.progtech.map.MapVO;
 
 import java.io.*;
 
@@ -10,8 +11,10 @@ import java.io.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws IOException {
+    Run StartGame = new Run(new MapVO());
+    StartGame.Start();
 
-        new Menu().menuLogin();
+
 
 
     /*

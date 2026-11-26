@@ -1,12 +1,10 @@
 package hu.nye.progtech.engine;
 
 import hu.nye.progtech.commands.SaveGame;
+import hu.nye.progtech.map.MapVO;
 
 import java.io.File;
-import java.sql.Savepoint;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 public class LocateSaveFolder {
 
@@ -15,22 +13,25 @@ public class LocateSaveFolder {
 
     File folder = new File(SaveFolder);
 
-    public LocateSaveFolder() {
+    public void LocateSaveFolder() {
         if (!folder.exists()) {
+            System.out.println("Folder doesn't exist");
             folder.mkdir();
+            System.out.print("Folder created");
+        } else {
+            System.out.println("Folder exists");
         }
     }
 
-    public void PrintSavedFiles() {
+    public void PrintSavedFiles(MapVO mapVO) {
         String[] files = folder.list();
         if (files == null || files.length == 0) {
-            System.out.print("Nincs mentett játék");
             try {
-                new SaveGame().saveDefaultGame();
+                new SaveGame().saveDefaultGame(mapVO);
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println("\n" + e);
             }
-            //saveDefaultGame();
+
             return;
         }
         for (int i = 0; i < files.length; i++) {
@@ -42,6 +43,7 @@ public class LocateSaveFolder {
             if (dotIndex > 0) {
                 fileName = fileName.substring(0, dotIndex);
             }
+
 
             System.out.println((i + 1) + ". " + fileName);
         }

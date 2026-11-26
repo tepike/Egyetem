@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Car implements GameObjects {
-    List<Car> cars = new ArrayList<Car>();
     static final int Length = 2;
     static Position pos;
 

@@ -5,6 +5,7 @@ import java.util.List;
 
 public class ObjectList {
     private static final List<GameObjects> objectList =new ArrayList<>();
+    private static final List<Player> playerList =new ArrayList<>();
 
     public static GameObjects findObjectAt(int x, int y) {
         for(GameObjects object : objectList) {

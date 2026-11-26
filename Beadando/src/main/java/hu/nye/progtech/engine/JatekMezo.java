@@ -28,14 +28,17 @@ public class JatekMezo  {
     // new JatekMezo(new MapVO());
     // dependency injection
 
-    public void printMap(MapVO map){
-        String[][] map2 =map.getMap();
-        List<Player> player =map.getPlayers();
-        //System.out.println("\nNeve: "+ Player.players.get(0).playerName+" Kilepesi adat x: "+Player.players.get(0).getExitX()+" y: "+Player.players.get(0).getExitY());
-        int player1ExitX= Player.players.get(0).getExitX();
-        int player1ExitY= Player.players.get(0).getExitY();
-        int player2ExitX= Player.players.get(1).getExitX();
-        int player2ExitY= Player.players.get(1).getExitY();
+    public void printMap(MapVO map,Player player){
+        String[][] mapData =map.getMap();
+        List<Player> playerObject=player.players;
+
+        System.out.println("\nNeve: "+ playerObject.get(0).playerName+" Kilepesi adat x: "+playerObject.get(0).getExitX()+" y: "+playerObject.get(0).getExitY());
+        int player1ExitX= playerObject.get(0).getExitX();
+        int player1ExitY= playerObject.get(0).getExitY();
+        int player2ExitX= playerObject.get(1).getExitX();
+        int player2ExitY= playerObject.get(1).getExitY();
+
+
         int sor=map.getNumberOfRows();
         int oszlop=map.getNumberOfColumns();
 
@@ -54,10 +57,10 @@ public class JatekMezo  {
                     else System.out.print("\u26D4"+"\t");
                 }
 
-                if(map2[i][j].equals("v")||map2[i][j].equals("h")){
+                if(mapData[i][j].equals("v")||mapData[i][j].equals("h")){
                     System.out.print(modells[3] + "\t");
                 }else{
-                    System.out.print(modells[Integer.parseInt(map2[i][j])] + "\t");
+                    System.out.print(modells[Integer.parseInt(mapData[i][j])] + "\t");
                 }
 
 

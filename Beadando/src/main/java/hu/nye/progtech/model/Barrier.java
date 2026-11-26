@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Barrier implements GameObjects {
-    private static final List<Barrier> barriers = new ArrayList<Barrier>();
+
     Position pos;
     Position.orientation orientation;
 
@@ -15,8 +15,6 @@ public class Barrier implements GameObjects {
         pos.setX(position.getX());
         pos.setY(position.getY());
         this.orientation = orientation;
-        barriers.add(this);
-
     }
 
 
@@ -41,7 +39,6 @@ public class Barrier implements GameObjects {
 
     public static void getBariersFromMap(MapVO mapVo) {
         String[][] map = mapVo.getMap();
-        barriers.clear();
         List<Position> position = new ArrayList<Position>();
 
 
@@ -54,7 +51,6 @@ public class Barrier implements GameObjects {
             }
             if (!position.isEmpty()) {
                 Barrier barrier = new Barrier(position.get(0), Position.orientation.HORIZONTAL);
-                barriers.add(barrier);
                 ObjectList.addObject(barrier);
                 position.clear();
             }
@@ -70,7 +66,6 @@ public class Barrier implements GameObjects {
             }
             if (!position.isEmpty()) {
                 Barrier barrier = new Barrier(position.get(0), Position.orientation.VERTICAL);
-                barriers.add(barrier);
                 ObjectList.addObject(barrier);
                 position.clear();
             }
